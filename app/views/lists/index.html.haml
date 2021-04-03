@@ -2,11 +2,11 @@
 %h1.header-title.mountain Lists
 %section.container
   = link_to 'New List', new_list_path
-  = link_to 'New Task', new_task_path
 
 %section.container
   .row
     .col-12
+      = link_to '+', new_task_path, class: 'add-link'
       %ul
         - @orphanTasks.each do |task|
           %li= task.text
@@ -16,7 +16,7 @@
   %section.container
     .row
       .col-12
-        = link_to '+ add Task', new_task_path(list: list)
+        = link_to '+', new_task_path(list: list), class: 'add-link'
         %ul
           - list.tasks.each do |task|
             %li= task.text
