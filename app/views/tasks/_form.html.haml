@@ -11,12 +11,8 @@
     = f.text_area :text
   .field
     = f.label :creator
-    = f.number_field :creator
-  .field
-    = f.label :completed_at
-    = f.datetime_select :completed_at
-  .field
-    = f.label :completed_from
-    = f.number_field :completed_from
+    = f.hidden_field :creator, value: current_user.id
+    = f.hidden_field :list_id, value: params[:list]
+    = f.text_field :dummy, value: current_user.email, disabled: true
   .actions
     = f.submit 'Save'
