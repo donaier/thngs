@@ -1,0 +1,30 @@
+.header
+  position: relative
+  background-color: lighten($purple, 6%)
+  border-bottom: $stroke solid $red-d
+  padding: 20px 0
+  margin-bottom: 10px
+
+  img, svg
+    height: 84px
+    width: 84px
+
+  #header-logo
+    path
+      fill: $white
+      transition: fill .4s ease
+      transition: transform .8s ease
+      transform-origin: center
+      &.r3
+        fill: $yellow
+      &.r2
+        fill: $orange
+      &.r1
+        fill: $red
+
+  a:hover #header-logo
+    path.r1
+      fill: $yellow
+      transform: rotate(90deg)
+    path.r3
+      fill: $red

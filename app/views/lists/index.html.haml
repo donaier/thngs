@@ -1,18 +1,22 @@
-.row
-  .col
-    %h1 Lists
+-# .container.text-center
+%h1.header-title.mountain Lists
+%section.container
+  = link_to 'New List', new_list_path
+  = link_to 'New Task', new_task_path
 
-    = link_to 'New List', new_list_path
-    = link_to 'New Task', new_task_path
-
-.row
-  .col
-    %ul
-      - @orphanTasks.each do |task|
-        %li= task.text
-    - @lists.each do |list|
-      %h3= list.title
-      = link_to '+ add Task', new_task_path(list: list)
+%section.container
+  .row
+    .col-12
       %ul
-        - list.tasks.each do |task|
+        - @orphanTasks.each do |task|
           %li= task.text
+- @lists.each do |list|
+  .container.text-center
+    %h3.flashy= list.title
+  %section.container
+    .row
+      .col-12
+        = link_to '+ add Task', new_task_path(list: list)
+        %ul
+          - list.tasks.each do |task|
+            %li= task.text
