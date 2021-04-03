@@ -1,18 +1,6 @@
-= form_for @task do |f|
-  - if @task.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      %ul
-        - @task.errors.full_messages.each do |message|
-          %li= message
-
-  .field
-    = f.label :text
-    = f.text_area :text
-  .field
-    = f.label :creator
-    = f.hidden_field :creator, value: current_user.id
+= form_for @task, remote: true do |f|
+  = f.text_field :text, class: 'cursor-left'
+  = f.hidden_field :creator, value: current_user.id
+  - if params[:list]
+    %small.text-right= '~/' + List.find(params[:list]).title + '/...'
     = f.hidden_field :list_id, value: params[:list]
-    = f.text_field :dummy, value: current_user.email, disabled: true
-  .actions
-    = f.submit 'Save'

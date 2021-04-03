@@ -3,17 +3,18 @@
   background-color: $purple-l
   border-bottom: $stroke solid $red-d
   padding: 20px 0
-  margin-bottom: 10px
+  margin-bottom: 30px
 
   img, svg
     height: 84px
     width: 84px
+    z-index: 1
+    position: relative
 
   #header-logo
     path
       fill: $white
-      transition: fill .4s ease
-      transition: transform .8s ease
+      transition: fill .8s ease, transform .8s ease
       transform-origin: center
       &.r3
         fill: $yellow

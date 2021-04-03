@@ -6,6 +6,8 @@ section
   border-radius: 15px
   margin-top: 10px
   margin-bottom: 10px
+  padding-top: 15px
+  padding-bottom: 15px
 
 h1, h2, h3, h4
   font-family: 'Righteous', sans-serif
@@ -40,9 +42,25 @@ a.add-link
   background-color: $yellow-d
   color: $purple-l
   font-size: 24px
-  line-height: 26px
-  margin-top: 12px
-  transition: background-color .4s ease
+  line-height: 24px
+  margin-top: -10px
+  margin-right: -10px
+  transition: background-color .4s ease, transform .4s ease
   &:hover
     color: $purple
     background-color: $yellow
+    transform: rotate(-90deg)
+
+ul.tasklist
+  margin-bottom: 0
+  padding-left: 0
+  li
+    font-size: 18px
+    list-style-type: none
+    background-color: lighten($brown, 5%)
+    border-radius: 10px
+    margin-bottom: 10px
+    padding: 0 24px
+
+    &:last-child
+      margin-bottom: 0

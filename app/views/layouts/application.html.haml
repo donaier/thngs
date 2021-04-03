@@ -10,6 +10,11 @@
     %link{ href: "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Righteous&display=swap", rel: "stylesheet" }
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'quasi_modal'
   %body
     = render 'parts/header'
     = yield
+    .quasi-modal
+      .overlay
+      .h
+        .content

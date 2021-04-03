@@ -1,0 +1,45 @@
+.quasi-modal.active
+  .overlay
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: darken($brown-d, 10%)
+    opacity: .4
+  .h
+    visibility: visible
+.quasi-modal .overlay
+  background-color: transparent
+  transition: background-color .4s ease
+.quasi-modal .h
+  position: fixed
+  left: 50%
+  top: 150px
+  visibility: hidden
+  .content
+    position: relative
+    left: -50%
+    border: 3px solid $red-d
+    border-radius: 10px
+    padding: 10px 25px
+    background-color: $purple-l
+
+  input
+    border: none
+    border-bottom: 3px solid lighten($brown, 5%)
+    background-color: transparent
+    min-width: 340px
+    color: $white
+    font-size: 22px
+    text-align: center
+    caret-color: $turq
+    &:focus
+      outline-width: 0
+    &.cursor-left
+      text-align: left
+
+  form small
+    display: block
+    margin-bottom: -8px
+    color: $turq
