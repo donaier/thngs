@@ -1,5 +1,5 @@
 = form_for @task, remote: true do |f|
-  = f.text_field :text, class: 'cursor-left'
+  = f.text_field :text
   = f.hidden_field :creator, value: current_user.id
   .additionals
     - if params[:list]
@@ -14,3 +14,8 @@
     %small.float-left.modifier.d-none.important.three
       hi!prio
     .clearfix
+  .help.d-none
+    %small
+      %span.white
+        = '-t / -[ip][123]'
+      sets task to tomorrow / importance[123]

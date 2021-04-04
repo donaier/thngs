@@ -1,3 +1,6 @@
 .header.container-fluid.text-center
-  = link_to lists_path do
+  = link_to current_user ? lists_path : root_path do
     = render 'parts/logo'
+  - if current_user
+    .container.text-left
+      = link_to 'logout', destroy_user_session_path, method: :delete, class: 'logout-link'

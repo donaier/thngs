@@ -3,13 +3,17 @@ $('.quasi-modal .content').html("<%= j (render partial: 'form') %>")
 $('.quasi-modal .content input').focus()
 
 $('.quasi-modal .content input').on('input', function(e) {
-  if (/^-[i][123]|^-t/.test($(e.target).val())) {
-    switch (/^-[i][123]|^-t/.exec($(e.target).val())[0]) {
+  if (/^-[ip][123]|^-t/.test($(e.target).val())) {
+    switch (/^-[ip][123]|^-t/.exec($(e.target).val())[0]) {
       case "-t":
         $('.quasi-modal small.tomorrow').removeClass('d-none')
         $(e.target).val('')
         break;
-      case "-i1":
+      case ("-i1"):
+        $('.quasi-modal small.important.one').removeClass('d-none')
+        $(e.target).val('')
+        break;
+      case ("-p1"):
         $('.quasi-modal small.important.one').removeClass('d-none')
         $(e.target).val('')
         break;
@@ -17,7 +21,15 @@ $('.quasi-modal .content input').on('input', function(e) {
         $('.quasi-modal small.important.two').removeClass('d-none')
         $(e.target).val('')
         break;
+      case "-p2":
+        $('.quasi-modal small.important.two').removeClass('d-none')
+        $(e.target).val('')
+        break;
       case "-i3":
+        $('.quasi-modal small.important.three').removeClass('d-none')
+        $(e.target).val('')
+        break;
+      case "-p3":
         $('.quasi-modal small.important.three').removeClass('d-none')
         $(e.target).val('')
         break;
