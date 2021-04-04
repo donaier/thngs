@@ -20,7 +20,7 @@
   .content
     position: relative
     left: -50%
-    border: 3px solid $red-d
+    border: 3px solid lighten($purple-l, 40%)
     border-radius: 10px
     padding: 10px 25px
     background-color: $purple-l
@@ -28,18 +28,30 @@
   input
     border: none
     border-bottom: 3px solid lighten($brown, 5%)
-    background-color: transparent
+    background-color: $purple
     min-width: 340px
     color: $white
     font-size: 22px
     text-align: center
     caret-color: $turq
+    margin-top: 15px
+    padding: 3px 8px 0
     &:focus
       outline-width: 0
     &.cursor-left
       text-align: left
 
   form small
-    display: block
-    margin-bottom: -8px
-    color: $turq
+    display: inline-block
+    color: lighten($purple-l, 40%)
+    &.modifier
+      font-weight: 700
+      padding-right: 5px
+    &.tomorrow
+      color: $turq-d
+    &.one
+      color: $yellow-d
+    &.two
+      color: $orange-d
+    &.three
+      color: $red-d

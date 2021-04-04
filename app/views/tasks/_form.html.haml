@@ -1,6 +1,16 @@
 = form_for @task, remote: true do |f|
   = f.text_field :text, class: 'cursor-left'
   = f.hidden_field :creator, value: current_user.id
-  - if params[:list]
-    %small.text-right= '~/' + List.find(params[:list]).title + '/...'
-    = f.hidden_field :list_id, value: params[:list]
+  .additionals
+    - if params[:list]
+      %small.float-right= '~/' + List.find(params[:list]).title + '/...'
+      = f.hidden_field :list_id, value: params[:list]
+    %small.float-left.modifier.d-none.tomorrow
+      tomorrow
+    %small.float-left.modifier.d-none.important.one
+      lo-prio
+    %small.float-left.modifier.d-none.important.two
+      medprio
+    %small.float-left.modifier.d-none.important.three
+      hi!prio
+    .clearfix
