@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_002250) do
+ActiveRecord::Schema.define(version: 2021_04_05_185914) do
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
     t.integer "owner"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lnks", force: :cascade do |t|
+    t.integer "list_id"
+    t.text "text"
+    t.text "href"
+    t.integer "creator"
+    t.datetime "completed_at"
+    t.integer "completed_from"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_04_05_002250) do
     t.integer "completed_from"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "flg_tomorrow"
+    t.integer "nbr_prio"
   end
 
   create_table "users", force: :cascade do |t|

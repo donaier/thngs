@@ -86,11 +86,20 @@ ul.tasklist
     font-size: 18px
     list-style-type: none
     background-color: $brown-d
-    border-radius: 10px
+    border: 2px solid $brown-d
+    border-radius: 5px
     margin-bottom: 10px
-    padding: 2px 10px
+    padding: 0 8px
     &:last-child
       margin-bottom: 0
+    &.tomorrow
+      opacity: .5
+    &.prio-1
+      border: 2px solid $yellow
+    &.prio-2
+      border: 2px solid $orange
+    &.prio-3
+      border: 2px solid $red
 
 .linklist
   text-align: right
@@ -102,7 +111,7 @@ ul.tasklist
     display: inline-block
     position: relative
     background-color: $purple
-    border-radius: 10px
+    border-radius: 5px
     padding: 4px 10px
     margin-bottom: 5px
     &:hover

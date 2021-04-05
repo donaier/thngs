@@ -1,0 +1,11 @@
+= form_for @lnk, remote: true do |f|
+  = f.text_field :text, placeholder: 'title'
+  %br
+  = f.text_field :href, placeholder: 'href'
+  = f.hidden_field :creator, value: current_user.id
+  .additionals
+    - if params[:list]
+      %small.float-right= '~/' + List.find(params[:list]).title + '/...'
+      = f.hidden_field :list_id, value: params[:list]
+    .clearfix
+  = f.submit 'ok', class: 'd-none'
