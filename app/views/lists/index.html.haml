@@ -3,19 +3,24 @@
   = link_to '+', new_list_path, class: 'add-link', remote: true
 
 %section.container
-  .row
-    .col-12
-      = link_to '+', new_task_path, class: 'add-link', remote: true
+  = link_to '+', new_task_path, class: 'add-link', remote: true
+  = link_to '>', new_task_path, class: 'add-link new-link', remote: true
+  .row.no-gutters
+    .col-10
       %ul.tasklist
         - @orphanTasks.each do |task|
           %li= task.text
+    .col-2
+      .linklist
+        = link_to 'dummy', root_path, target: '_blank', class: 'alink'
+        = link_to 'Design Projekt XY superlanger link', root_path, target: '_blank', class: 'alink'
 - @lists.each do |list|
   .container.text-center
     %h3.flashy= list.title
   %section.container
+    = link_to '+', new_task_path(list: list), class: 'add-link', remote: true
     .row
-      .col-12
-        = link_to '+', new_task_path(list: list), class: 'add-link', remote: true
+      .col-10
         %ul.tasklist
           - list.tasks.each do |task|
             %li= task.text

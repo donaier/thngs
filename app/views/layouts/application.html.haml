@@ -11,7 +11,7 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'quasi_modal'
-  %body{ class: current_user.wants_help ? 'show-help' : '' }
+  %body{ class: current_user.try(:wants_help) ? 'show-help' : '' }
     = render 'parts/header'
     = yield
     .quasi-modal
