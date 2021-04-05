@@ -3,4 +3,5 @@
     = render 'parts/logo'
   - if current_user
     .container.text-left
-      = link_to 'logout', destroy_user_session_path, method: :delete, class: 'logout-link'
+      = link_to 'logout', destroy_user_session_path, method: :delete, class: 'header-link logout'
+      = link_to 'helpmode', toggle_help_path, method: :patch, class: current_user.wants_help ? 'header-link help-tgl' : 'header-link help-tgl off', remote: true

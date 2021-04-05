@@ -26,6 +26,7 @@ a
   font-family: 'Merriweather', serif
   font-weight: 700
   color: $yellow-d
+  transition: color .4s ease
   &:hover
     text-decoration: none
     color: $yellow
@@ -55,14 +56,19 @@ a.add-link
     background-color: $yellow
     transform: rotate(-90deg)
 
-a.logout-link
+a.header-link
   position: absolute
-  top: 100px
   color: $purple
   font-size: 16px
   line-height: 24px
   &:hover
     color: $yellow
+  &.logout
+    top: 100px
+  &.help-tgl
+    top: 76px
+    &.off
+      text-decoration: line-through
 
 ul.tasklist
   margin-bottom: 0
