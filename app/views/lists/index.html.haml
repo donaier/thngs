@@ -24,7 +24,7 @@
     .row
       .col-10
         %ul.tasklist
-          - list.tasks.each do |task|
+          - list.tasks.listed.each do |task|
             %li{ class: "#{task.flg_tomorrow ? 'tomorrow' : ''} prio-#{task.nbr_prio}"}
               = task.text
       .col-2

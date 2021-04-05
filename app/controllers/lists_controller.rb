@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = List.all
-    @orphanTasks = Task.orphans
+    @orphanTasks = Task.orphans.listed
     @orphanLnks = Lnk.orphans
   end
 
