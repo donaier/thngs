@@ -10,11 +10,11 @@
   .h
     visibility: visible
 .quasi-modal .overlay
-  z-index: 3
+  z-index: 11
   background-color: transparent
   transition: background-color .4s ease
 .quasi-modal .h
-  z-index: 7
+  z-index: 22
   position: fixed
   left: 50%
   top: 150px
@@ -31,6 +31,16 @@
     padding: 7px 10px
     border-radius: 8px
     font-size: 24px
+
+@media only screen and (max-width: $MINImax)
+  .quasi-modal .h
+    .content
+      max-width: 100%
+      left: -50%
+    input
+      min-width: unset
+      max-width: 100%
+      font-size: 20px
 
   form small
     display: inline-block

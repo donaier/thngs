@@ -1,7 +1,8 @@
-.header.container-fluid.text-center
+.header.container-fluid.text-sm-center
   = link_to current_user ? lists_path : root_path do
     = render 'parts/logo'
   - if current_user
-    .container.text-left
-      = link_to 'logout', destroy_user_session_path, method: :delete, class: 'header-link logout'
-      = link_to 'helpmode', toggle_help_path, method: :patch, class: current_user.wants_help ? 'header-link help-tgl' : 'header-link help-tgl off', remote: true
+    .container.text-right.position-relative
+      .header-links
+        = link_to '', toggle_help_path, method: :patch, class: current_user.wants_help ? 'header-link help-tgl' : 'header-link help-tgl off', remote: true
+        = link_to '', destroy_user_session_path, method: :delete, class: 'header-link more'
