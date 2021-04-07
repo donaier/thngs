@@ -29,3 +29,66 @@
       transform: rotate(90deg)
     path.r3
       fill: $red
+
+  .header-links
+    position: absolute
+    right: 0
+    bottom: 0
+    padding-right: 10px
+    a.header-link
+      z-index: 8
+      display: inline-block
+      position: relative
+      border-radius: 10px
+      padding: 0 20px
+      background-image: asset-url('icons/chain-dark.svg')
+      background-size: contain
+      background-color: lighten($purple-l, 5%)
+      background-position: center
+      background-repeat: no-repeat
+      height: 28px
+      width: 28px
+      &.help-tgl
+        z-index: 12
+        background-image: asset-url('icons/help-bright.svg')
+        background-size: 65%
+        &.off
+          background-image: asset-url('icons/help-dark.svg')
+
+.header-interceptor
+  position: absolute
+  top: 0
+  width: 100%
+
+  .header-title
+    width: 50%
+    position: relative
+    left: 50%
+    padding-top: 52px
+    padding-left: 64px
+  .header-link
+    position: relative
+    float: right
+    top: 6px
+    right: -5px
+    background-color: $red-d
+
+@media only screen and (max-width: $MINImax)
+  .header
+    padding: 10px 0
+    img, svg
+      height: 44px
+      width: 44px
+      margin-left: 10px
+    .header-links
+      bottom: 16px
+
+  .header-interceptor
+    .header-title
+      left: 48px
+      padding-top: 22px
+      padding-left: 0
+      font-size: 24px
+    .header-link
+      top: -6px
+      right: -8px

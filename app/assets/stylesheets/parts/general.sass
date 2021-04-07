@@ -1,5 +1,6 @@
 body
   background: $brown-d
+  overflow: hidden
 
 section
   position: relative
@@ -10,7 +11,16 @@ section
   padding-top: 15px
   padding-bottom: 15px
   border: 3px solid lighten($brown, 5%)
-  overflow: hidden
+
+@media only screen and (max-width: $MINImax)
+  section
+    border: none
+    border-top: 3px solid lighten($brown, 5%)
+    border-bottom: 3px solid lighten($brown, 5%)
+    border-radius: 0
+    padding-top: 20px
+    padding-bottom: 5px
+
 
 h1, h2, h3, h4
   font-family: 'Righteous', sans-serif
@@ -29,7 +39,7 @@ a
   font-family: 'Merriweather', serif
   font-weight: 700
   color: $yellow-d
-  transition: color .4s ease, background-color .4s ease
+  transition: color .2s ease, background-color .4s ease
   &:hover
     text-decoration: none
     color: $yellow
@@ -40,44 +50,23 @@ span.white
 
 a.add-link
   position: absolute
-  top: 6px
+  top: -14px
   right: 6px
   text-align: center
   height: 24px
-  width: 24px
+  width: 44px
   border-radius: 15px
   background-color: $yellow-d
   color: $purple-l
-  font-size: 24px
+  font-size: 22px
   line-height: 22px
-  transition: transform .4s ease
   z-index: 3
   &:hover
-    color: $purple
-    background-color: $yellow
-    transform: rotate(90deg)
-  &.new-link
-    right: 42px
-    color: $yellow-d
-    background-color: $purple
-    &:hover
-      color: $yellow
-      background-color: $purple-l
-
-
-a.header-link
-  position: absolute
-  color: $purple
-  font-size: 16px
-  line-height: 24px
-  &:hover
-    color: $yellow
-  &.logout
-    top: 100px
-  &.help-tgl
-    top: 76px
-    &.off
-      text-decoration: line-through
+    color: $white
+    background-color: $turq
+  &.new-lnk
+    font-size: 18px
+    right: 54px
 
 ul.tasklist
   margin-bottom: 0
@@ -100,22 +89,40 @@ ul.tasklist
       border: 2px solid $orange
     &.prio-3
       border: 2px solid $red
+  @media only screen and (max-width: $MINImax)
+    li
+      font-size: 14px
+      margin-bottom: 5px
+      border-width: 1px
 
 .linklist
   text-align: right
   height: 100%
-  padding-top: 30px
+  padding-top: 20px
   padding-left: 15px
-  margin-right: -9px
   .alink
     display: inline-block
     position: relative
+    width: 120%
     background-color: $purple
+    border: 2px solid $purple-l
     border-radius: 5px
     padding: 4px 10px
     margin-bottom: 5px
     &:hover
       background-color: $purple-l
+  @media only screen and (max-width: $MINImax)
+    padding-top: 10px
+    .alink
+      font-size: 14px
+      margin-bottom: 5px
+      border-width: 1px
+
+@media only screen and (max-width: $MOBILEmax)
+  .linklist
+    .alink
+      width: unset
+
 
 form
   input[type="submit"]

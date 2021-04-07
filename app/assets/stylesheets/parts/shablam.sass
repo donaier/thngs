@@ -22,24 +22,19 @@ h1, h2, h3, h4
       transform: rotate(23deg)
 
 h1.header-title
-  position: absolute
-  left: 50%
-  padding-left: 60px
-  top: 64px
-  &::after
-    content: ''
-    display: block
-    height: 130px
-    width: 130px
-    background-size: contain
-    position: absolute
-    right: -200px
-  &.mountain::after
-    background-image: asset-url('icons/069-mountains.svg')
-    bottom: -20px
-  .add-link
-    background-color: $purple
-    right: -36px
-    top: 16px
-    &:hover
-      background-color: $yellow
+  // &::after
+  //   content: ''
+  //   display: block
+  //   height: 120px
+  //   width: 120px
+  //   background-size: contain
+  //   position: absolute
+  //   right: 0
+  // &.mountain::after
+  //   background-image: asset-url('icons/069-mountains.svg')
+  //   bottom: -20px
+
+@media only screen and (max-width: $MOBILEmax)
+  h1.header-title
+    &::after
+      display: none

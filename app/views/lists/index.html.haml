@@ -1,17 +1,19 @@
-%h1.header-title.mountain
-  Lists
-  = link_to '+', new_list_path, class: 'add-link', remote: true
+.header-interceptor
+  .container
+    %h1.header-title.mountain
+      Lists
+    = link_to '+', new_list_path, class: 'header-link add-link', remote: true
 
 %section.container
   = link_to '+', new_task_path, class: 'add-link', remote: true
-  = link_to '>', new_lnk_path, class: 'add-link new-link', remote: true
+  = link_to '#', new_lnk_path, class: 'add-link new-lnk', remote: true
   .row.no-gutters
-    .col-10
+    .col-md-9.col-lg-10.col-12
       %ul.tasklist
         - @orphanTasks.each do |task|
           %li{ class: "#{task.flg_tomorrow ? 'tomorrow' : ''} prio-#{task.nbr_prio}"}
             = task.text
-    .col-2
+    .col-md-3.col-lg-2.col-12
       .linklist
         - @orphanLnks.each do |lnk|
           = link_to lnk.text, lnk.href, target: '_blank', class: 'alink'
@@ -20,14 +22,14 @@
     %h3.flashy= list.title
   %section.container
     = link_to '+', new_task_path(list: list), class: 'add-link', remote: true
-    = link_to '>', new_lnk_path(list: list), class: 'add-link new-link', remote: true
+    = link_to '#', new_lnk_path(list: list), class: 'add-link new-lnk', remote: true
     .row
-      .col-10
+      .col-md-9.col-lg-10.col-12
         %ul.tasklist
           - list.tasks.listed.each do |task|
             %li{ class: "#{task.flg_tomorrow ? 'tomorrow' : ''} prio-#{task.nbr_prio}"}
               = task.text
-      .col-2
+      .col-md-3.col-lg-2.col-12
         .linklist
           - list.lnks.each do |lnk|
             = link_to lnk.text, lnk.href, target: '_blank', class: 'alink'
