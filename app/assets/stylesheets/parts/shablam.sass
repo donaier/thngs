@@ -21,20 +21,9 @@ h1, h2, h3, h4
       left: 10px
       transform: rotate(23deg)
 
-h1.header-title
-  // &::after
-  //   content: ''
-  //   display: block
-  //   height: 120px
-  //   width: 120px
-  //   background-size: contain
-  //   position: absolute
-  //   right: 0
-  // &.mountain::after
-  //   background-image: asset-url('icons/069-mountains.svg')
-  //   bottom: -20px
-
-@media only screen and (max-width: $MOBILEmax)
-  h1.header-title
-    &::after
-      display: none
+    @media only screen and (max-width: $MINImax)
+      font-size: 18px
+      line-height: 24px
+      margin-left: -20px
+      margin-top: 8px
+      margin-bottom: -4px
