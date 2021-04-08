@@ -1,6 +1,5 @@
 body
   background: $brown-d
-  overflow: hidden
 
 section
   position: relative
@@ -72,6 +71,7 @@ ul.tasklist
   margin-bottom: 0
   padding-left: 0
   li
+    position: relative
     font-size: 18px
     list-style-type: none
     background-color: $brown-d
@@ -79,6 +79,9 @@ ul.tasklist
     border-radius: 5px
     margin-bottom: 10px
     padding: 0 8px
+    transition: transform .4s ease, margin-bottom .4s ease
+    &:hover a.check
+      opacity: 1
     &:last-child
       margin-bottom: 0
     &.tomorrow
@@ -89,11 +92,40 @@ ul.tasklist
       border: 2px solid $orange
     &.prio-3
       border: 2px solid $red
+    &.fadeout
+      transform: scale(0)
+      margin-bottom: -31px
+    a.check
+      opacity: 0
+      display: inline-block
+      position: absolute
+      right: 10px
+      top: 2px
+      height: 23px
+      width: 28px
+      background-image: asset-url('icons/check.svg')
+      border-radius: 5px
+      background-size: 70%
+      background-repeat: no-repeat
+      background-position: center
+      background-color: $brown
+      transition: opacity .2s ease, background-color .2s ease
+      &:hover
+        background-color: lighten($brown, 10%)
+
   @media only screen and (max-width: $MINImax)
     li
       font-size: 14px
       margin-bottom: 5px
-      border-width: 1px
+      border-width: 1px !important
+      &.fadeout
+        margin-bottom: -23px
+      a.check
+        opacity: 1
+        right: 1px
+        top: 1px
+        height: 19px
+        width: 28px
 
 .linklist
   text-align: right

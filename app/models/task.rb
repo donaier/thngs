@@ -6,4 +6,8 @@ class Task < ApplicationRecord
   def self.listed
     order(flg_tomorrow: :asc).order(nbr_prio: :desc)
   end
+
+  def completed?
+    completed_at != nil
+  end
 end
