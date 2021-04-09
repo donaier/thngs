@@ -1,0 +1,17 @@
+.header-interceptor
+  .container
+    %h1.header-title You
+
+%section.container
+  = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'header-link more'
+
+.container.text-sm-center
+  %h3.flashy Boards
+%section.container
+  = link_to '+', new_board_path, class: 'add-link', remote: true
+  .row.no-gutters
+    .col-12
+      %ul.tasklist
+        - current_user.boards.each do |board|
+          %li
+            = board.title + " (#{board.lists.count})"

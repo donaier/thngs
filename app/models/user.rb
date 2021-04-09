@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :validatable
 
   has_many :lists, foreign_key: 'owner'
+  has_many :boards, foreign_key: 'owner'
 
   def toggle_help
     self.toggle!(:wants_help)
