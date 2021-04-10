@@ -1,1 +1,32 @@
-= @board.title
+%section.container
+  = link_to '+', new_task_path, class: 'add-link', remote: true
+  = link_to '#', new_lnk_path, class: 'add-link new-lnk', remote: true
+  .row.no-gutters
+    .col-md-9.col-lg-10.col-12
+      %ul.tasklist
+        - incomplete(@board.orphan_tasks).each do |task|
+          %li{ class: "#{task.flg_tomorrow ? 'tomorrow' : ''} prio-#{task.nbr_prio}", id: "task-#{task.id}" }
+            = task.text
+            = link_to '', complete_task_path(task.id), method: :patch, remote: true, class: 'check'
+    .col-md-3.col-lg-2.col-12
+      .linklist
+        - @board.orphan_lnks.each do |lnk|
+          = link_to lnk.text, lnk.href, target: '_blank', class: 'alink'
+
+- @board.lists.each do |list|
+  .container.text-sm-center
+    %h3.flashy= list.title
+  %section.container
+    = link_to '+', new_task_path(list: list), class: 'add-link', remote: true
+    = link_to '#', new_lnk_path(list: list), class: 'add-link new-lnk', remote: true
+    .row
+      .col-md-9.col-lg-10.col-12
+        %ul.tasklist
+          - incomplete(list.tasks.listed).each do |task|
+            %li{ class: "#{task.flg_tomorrow ? 'tomorrow' : ''} prio-#{task.nbr_prio}", id: "task-#{task.id}" }
+              = task.text
+              = link_to '', complete_task_path(task.id), method: :patch, remote: true, class: 'check'
+      .col-md-3.col-lg-2.col-12
+        .linklist
+          - list.lnks.each do |lnk|
+            = link_to lnk.text, lnk.href, target: '_blank', class: 'alink'

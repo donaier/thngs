@@ -4,7 +4,8 @@
       %h1.header-title.mountain
         = @board.title
       = link_to '+', new_list_path(board: @board.id), class: 'header-link add-link', remote: true
-      = render partial: 'boards/show', board: @board
+  = render partial: 'boards/show', board: @board
+
 - else
   .header-interceptor
     .container
