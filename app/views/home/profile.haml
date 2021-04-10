@@ -11,7 +11,7 @@
   = link_to '+', new_board_path, class: 'add-link', remote: true
   .row.no-gutters
     .col-12
-      %ul.tasklist
+      %ul.boardlist
         - current_user.boards.each do |board|
-          %li
+          %li{ id: "board-#{board.id}" }
             = board.title + " (#{board.lists.count})"

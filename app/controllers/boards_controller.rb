@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.html { redirect_to home_profile_path }
+        format.js { render :add_board }
         format.json { render :show, status: :created, location: @board }
       else
         format.html { render :new }

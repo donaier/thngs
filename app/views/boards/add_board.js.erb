@@ -1,0 +1,4 @@
+$('ul.boardlist').append("<li id='board-<%= @board.id %>'><%= @board.title %>&nbsp;<span class='badge badge-dark'>new</span></li>")
+
+$('.quasi-modal').removeClass('active')
+$('.quasi-modal .content').html("")
