@@ -1,5 +1,5 @@
 .header.container-fluid.text-sm-center
-  = link_to current_user ? lists_path : root_path do
+  = link_to root_path do
     = render 'parts/logo'
   - if current_user
     .container.text-right.position-relative

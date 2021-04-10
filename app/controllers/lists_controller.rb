@@ -30,7 +30,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to lists_path }
+        format.js { render :add_list }
         format.json { render :show, status: :created, location: @list }
       else
         # format.html { render :new }
@@ -71,6 +71,6 @@ class ListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_params
-      params.require(:list).permit(:title, :owner)
+      params.require(:list).permit(:title, :owner, :board_id)
     end
 end

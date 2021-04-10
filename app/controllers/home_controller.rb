@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
-  def profile
+  def home
+    @board = current_user.home_board
+  end
 
+  def profile
   end
 
   def toggle_help

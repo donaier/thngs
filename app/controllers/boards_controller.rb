@@ -20,8 +20,12 @@ class BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.js { render :add_board }
-        format.json { render :show, status: :created, location: @board }
+        if current_user.boards.count > 1
+          format.js { render :add_board }
+          format.json { render :show, status: :created, location: @board }
+        else
+          format.html { redirect_to root_path }
+        end
       else
         format.html { render :new }
         format.json { render json: @board.errors, status: :unprocessable_entity }

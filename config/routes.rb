@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :lnks
 
-  root to: 'lists#index'
+  root to: 'home#home'
   get 'home/profile'
 
   patch 'toggle_help', controller: 'home', action: :toggle_help

@@ -9,4 +9,12 @@ class User < ApplicationRecord
   def toggle_help
     self.toggle!(:wants_help)
   end
+
+  def home_board
+    if home_board_id
+      Board.find(home_board_id)
+    else
+      boards.first
+    end
+  end
 end
