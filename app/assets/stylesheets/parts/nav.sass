@@ -1,0 +1,58 @@
+.board-nav
+  position: relative
+  margin-left: 50%
+  margin-right: 84px
+
+  .overlay
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    background-color: $purple
+    opacity: 0
+    z-index: 11
+    transition: opacity .4s ease
+    &.active
+      bottom: 0
+      opacity: .75
+      .highlight-pillar
+        height: 100vh
+    .highlight-pillar
+      position: absolute
+      left: 50%
+      margin-left: 52px
+      right: 110px
+      height: 0
+      background-color: $purple-l
+      transition: height .4s ease
+
+  ul
+    z-index: 15
+    position: relative
+    margin-top: 52px
+    margin-bottom: 0
+    margin-left: 64px
+    padding-left: 0
+    &.open
+      li:not(.active)
+        max-height: 150px
+        margin-top: 32px
+    li:not(.active)
+      max-height: 0
+      margin-top: 0
+    li
+      list-style-type: none
+      overflow: hidden
+      transition: max-height .4s ease, margin-top .4s ease
+    a:hover h1
+      color: $turq
+
+  @media only screen and (max-width: $MINImax)
+    margin-left: 0
+    padding-top: 22px
+    padding-left: 0
+    ul
+      margin-top: 0
+      margin-left: 48px
+    h1
+      font-size: 24px

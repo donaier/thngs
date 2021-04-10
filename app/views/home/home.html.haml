@@ -1,0 +1,20 @@
+- if @home_board
+  .header-interceptor
+    .container.position-relative
+      = render partial: 'parts/board_nav'
+      = link_to '+', new_list_path(board: @home_board.id), class: 'header-link add-link', remote: true
+  = render partial: 'boards/show'
+
+- else
+  .header-interceptor
+    .container.position-relative
+      %h1.header-title
+        Welcome
+      = link_to '+', new_board_path, class: 'header-link add-link', remote: true
+  %section.container
+    .row
+      .col-12
+        .help-section.text-center
+          %small no boards? ... start by creating one
+        .help-section.text-center
+          %small the red "+" on top will do that only once. it will create lists on your future boards. find your boards in your user section

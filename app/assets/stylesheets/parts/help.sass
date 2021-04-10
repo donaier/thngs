@@ -4,7 +4,14 @@
   display: block
 .help-quasimodal
   color: lighten($purple-l, 40%)
+.help-section
+  color: $white
+  background-color: $purple-l
+  border-radius: 5px
+  margin-bottom: 10px
+.help-icon
   padding: 2px 5px 3px 35px
+  position: relative
   &::before
     content: ''
     display: block
@@ -17,7 +24,7 @@
     bottom: 5px
 
 @media only screen and (max-width: $MINImax)
-  .help-quasimodal
+  .help-icon
     &::before
       height: 16px
       width: 16px

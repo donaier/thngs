@@ -1,0 +1,4 @@
+$('#list-<%= @task.list_id %> ul.tasklist').append("<li id='task-<%= @task.id %>'><%= @task.text %></li>")
+
+$('.quasi-modal').removeClass('active')
+$('.quasi-modal .content').html("")

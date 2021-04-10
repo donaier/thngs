@@ -1,11 +1,13 @@
 = form_for @task, remote: true do |f|
   = f.text_field :text
   = f.hidden_field :creator, value: current_user.id
+  = f.hidden_field :board_id, value: params[:board]
   = f.hidden_field :flg_tomorrow
   = f.hidden_field :nbr_prio
   .additionals
     - if params[:list]
-      %small.float-right= '~/' + List.find(params[:list]).title + '/...'
+      %small.float-right.pr-2
+        = '~/' + List.find(params[:list]).board.title + '/' + List.find(params[:list]).title + '/...'
       = f.hidden_field :list_id, value: params[:list]
     %small.float-left.modifier.d-none.tomorrow
       tomorrow
@@ -16,7 +18,7 @@
     %small.float-left.modifier.d-none.important.three
       hi!prio
     .clearfix
-.help.help-quasimodal
+.help.help-icon.help-quasimodal
   %small
     %span.white
       = '-t / -[ip][123]'
