@@ -42,10 +42,12 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @board.destroy
-    respond_to do |format|
-      format.html { redirect_to boards_url, notice: 'Board was successfully destroyed.' }
-      format.json { head :no_content }
+    if @board.lists.empty?
+      @board.destroy
+      respond_to do |format|
+        format.js { render :remove_board, board: @board }
+        format.json { head :no_content }
+      end
     end
   end
 

@@ -11,7 +11,11 @@
   = link_to '+', new_board_path, class: 'add-link', remote: true
   .row.no-gutters
     .col-12
+      .help.help-icon.help-section.text-center
+        %small boards can only be deleted if empty
       %ul.boardlist
         - current_user.boards.each do |board|
           %li{ id: "board-#{board.id}" }
             = board.title + " (#{board.lists.count})"
+            - if board.lists.empty?
+              = link_to '', board_path(board), method: :delete, remote: true, class: 'remove'
