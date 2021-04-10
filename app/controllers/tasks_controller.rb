@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to lists_path }
+        format.js { render :add_task }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -62,6 +62,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:text, :creator, :list_id, :completed_at, :completed_from, :flg_tomorrow, :nbr_prio)
+      params.require(:task).permit(:text, :creator, :list_id, :completed_at, :completed_from, :flg_tomorrow, :nbr_prio, :board_id)
     end
 end

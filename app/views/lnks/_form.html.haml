@@ -3,6 +3,7 @@
   %br
   = f.text_field :href, placeholder: 'href'
   = f.hidden_field :creator, value: current_user.id
+  = f.hidden_field :board_id, value: params[:board]
   .additionals
     - if params[:list]
       %small.float-right= '~/' + List.find(params[:list]).title + '/...'

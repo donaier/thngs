@@ -1,6 +1,7 @@
 = form_for @task, remote: true do |f|
   = f.text_field :text
   = f.hidden_field :creator, value: current_user.id
+  = f.hidden_field :board_id, value: params[:board]
   = f.hidden_field :flg_tomorrow
   = f.hidden_field :nbr_prio
   .additionals

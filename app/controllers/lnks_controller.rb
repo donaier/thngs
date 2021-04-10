@@ -20,7 +20,7 @@ class LnksController < ApplicationController
 
     respond_to do |format|
       if @lnk.save
-        format.html { redirect_to lists_path }
+        format.js { render :add_lnk }
         format.json { render :show, status: :created, location: @lnk }
       else
         format.html { render :new }
@@ -56,6 +56,6 @@ class LnksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lnk_params
-      params.require(:lnk).permit(:text, :href, :creator, :list_id, :completed_at, :completed_from)
+      params.require(:lnk).permit(:text, :href, :creator, :list_id, :completed_at, :completed_from, :board_id)
     end
 end
