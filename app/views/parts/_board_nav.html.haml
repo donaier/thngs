@@ -1,0 +1,12 @@
+.board-nav
+  .overlay
+    .container.position-relative
+      .highlight-pillar
+  %ul
+    %li.active{ class: "nav-board-#{@home_board.id}" }
+      %h1= @home_board.title
+    - current_user.boards.each do |board|
+      - unless board == @home_board
+        %li{ class: "nav-board-#{board.id}" }
+          = link_to root_path(board: board) do
+            %h1= board.title

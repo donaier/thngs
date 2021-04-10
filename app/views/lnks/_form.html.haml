@@ -6,7 +6,8 @@
   = f.hidden_field :board_id, value: params[:board]
   .additionals
     - if params[:list]
-      %small.float-right= '~/' + List.find(params[:list]).title + '/...'
+      %small.float-right.pr-2
+        = '~/' + List.find(params[:list]).board.title + '/' + List.find(params[:list]).title + '/...'
       = f.hidden_field :list_id, value: params[:list]
     .clearfix
   = f.submit 'ok', class: 'd-none'

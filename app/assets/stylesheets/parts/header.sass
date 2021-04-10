@@ -8,7 +8,7 @@
   img, svg
     height: 84px
     width: 84px
-    z-index: 11
+    z-index: 15
     position: relative
 
   #header-logo
@@ -48,6 +48,8 @@
       background-repeat: no-repeat
       height: 28px
       width: 28px
+      &:hover
+        background-color: lighten($purple-l, 10%)
       &.help-tgl
         z-index: 12
         background-image: asset-url('icons/help-bright.svg')
@@ -67,10 +69,9 @@
     padding-top: 52px
     padding-left: 64px
   .header-link
-    position: relative
-    float: right
-    top: 6px
-    right: -5px
+    position: absolute
+    top: 62px
+    right: 9px
     background-color: $red-d
 
 @media only screen and (max-width: $MINImax)
@@ -90,5 +91,5 @@
       padding-left: 0
       font-size: 24px
     .header-link
-      top: -6px
-      right: -8px
+      top: 55px
+      right: 7px
