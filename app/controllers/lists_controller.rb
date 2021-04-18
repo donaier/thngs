@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :destroy]
 
   def index
     @lists = List.all
@@ -23,26 +23,11 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.save
         format.js { render :add_list }
-        format.json { render :show, status: :created, location: @list }
-      else
-        # format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def update
-    respond_to do |format|
-      if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
-        format.json { render :show, status: :ok, location: @list }
-      else
-        format.html { render :edit }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
+  # todo
   def destroy
     @list.destroy
     respond_to do |format|
