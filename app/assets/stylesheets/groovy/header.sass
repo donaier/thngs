@@ -1,0 +1,30 @@
+.header
+  background-color: $purple-l
+  border-bottom: $stroke solid $red-d
+
+  #header-logo
+    path
+      fill: $white
+      &.r3
+        fill: $yellow
+      &.r2
+        fill: $orange
+      &.r1
+        fill: $red
+
+  a:hover #header-logo
+    path.r1
+      fill: $yellow
+      transform: rotate(90deg)
+    path.r3
+      fill: $red
+
+  .header-links
+    a.header-link
+      background-color: lighten($purple-l, 5%)
+      &:hover
+        background-color: lighten($purple-l, 10%)
+
+.header-interceptor
+  .header-link
+    background-color: $red-d
