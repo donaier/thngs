@@ -8,9 +8,18 @@ class HomeController < ApplicationController
   end
 
   def profile
+    @boards = current_user.boards
   end
 
   def toggle_help
     current_user.toggle_help
+  end
+
+  def set_home_board
+    @board = Board.find(params[:id])
+
+    if @board.owner == current_user.id
+      current_user.update(home_board_id: @board.id)
+    end
   end
 end

@@ -2,8 +2,13 @@
   .container.position-relative
     %h1.header-title You
 
-%section.container
+%section.container.profile-settings
   = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'header-link more'
+  %br
+  %label{ for: 'home-board' } Home Board?
+  %select{ name: 'home_board', id: 'home-board'}
+    - @boards.each do |board|
+      %option{ value: board.id, selected: current_user.home_board_id == board.id }= board.title
 
 .container.text-sm-center
   %h3.flashy Boards
@@ -14,8 +19,16 @@
       .help.help-icon.help-section.text-center
         %small boards can only be deleted if empty
       %ul.boardlist
-        - current_user.boards.each do |board|
-          %li{ id: "board-#{board.id}" }
+        - @boards.each do |board|
+          %li{ id: "board-#{board.id}", class: board == current_user.home_board ? 'home-board' : '' }
             = board.title + " (#{board.lists.count})"
             - if board.lists.empty?
               = link_to '', board_path(board), method: :delete, remote: true, class: 'remove'
+
+:javascript
+  $('.profile-settings select').on('change', function(e) {
+    $.ajax({
+      url: "/set_home_board/" + $(e.target).val(),
+      method: "PATCH"
+    });
+  });
