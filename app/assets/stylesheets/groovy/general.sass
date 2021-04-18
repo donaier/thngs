@@ -1,0 +1,36 @@
+body
+  background: $bg-d
+
+section
+  background: $bg
+  border: 3px solid lighten($bg, 5%)
+
+@media only screen and (max-width: $MINImax)
+  section
+    border: none
+    border-radius: 0
+    border-top: 3px solid lighten($bg, 5%)
+    border-bottom: 3px solid lighten($bg, 5%)
+
+h1, h2, h3, h4
+  font-family: 'Righteous', sans-serif
+  color: $loud-d
+  text-transform: uppercase
+
+p, ul, ol
+  font-family: 'Merriweather', serif
+  font-weight: 300
+  color: $white
+
+a
+  font-family: 'Merriweather', serif
+  font-weight: 700
+  color: $acc-1-d
+  transition: color .2s ease, background-color .4s ease
+  &:hover
+    text-decoration: none
+    color: $acc-1
+
+span.white
+  color: $white
+  font-weight: 700

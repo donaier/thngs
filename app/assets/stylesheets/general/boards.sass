@@ -1,52 +1,3 @@
-body
-  background: $brown-d
-
-section
-  position: relative
-  background: $brown
-  border-radius: 15px
-  margin-top: 10px
-  margin-bottom: 10px
-  padding-top: 15px
-  padding-bottom: 15px
-  border: 3px solid lighten($brown, 5%)
-
-@media only screen and (max-width: $MINImax)
-  section
-    border: none
-    border-top: 3px solid lighten($brown, 5%)
-    border-bottom: 3px solid lighten($brown, 5%)
-    border-radius: 0
-    padding-top: 20px
-    padding-bottom: 5px
-
-
-h1, h2, h3, h4
-  font-family: 'Righteous', sans-serif
-  color: $turq-d
-  text-transform: uppercase
-
-p, ul, ol
-  font-family: 'Merriweather', serif
-  font-weight: 300
-  color: $white
-
-ul
-  list-style-type: circle
-
-a
-  font-family: 'Merriweather', serif
-  font-weight: 700
-  color: $yellow-d
-  transition: color .2s ease, background-color .4s ease
-  &:hover
-    text-decoration: none
-    color: $yellow
-
-span.white
-  color: $white
-  font-weight: 700
-
 a.add-link
   position: absolute
   top: -14px
@@ -55,14 +6,9 @@ a.add-link
   height: 24px
   width: 44px
   border-radius: 15px
-  background-color: $yellow-d
-  color: $purple-l
   font-size: 22px
   line-height: 22px
   z-index: 3
-  &:hover
-    color: $white
-    background-color: $turq
   &.new-lnk
     font-size: 18px
     right: 54px
@@ -74,8 +20,6 @@ ul.tasklist, ul.boardlist
     position: relative
     font-size: 18px
     list-style-type: none
-    background-color: $brown-d
-    border: 2px solid $brown-d
     border-radius: 5px
     margin-bottom: 10px
     padding: 0 8px
@@ -91,12 +35,6 @@ ul.tasklist li
     margin-bottom: 0
   &.tomorrow
     opacity: .5
-  &.prio-1
-    border: 2px solid $yellow
-  &.prio-2
-    border: 2px solid $orange
-  &.prio-3
-    border: 2px solid $red
   a.check
     opacity: 0
     display: inline-block
@@ -110,10 +48,7 @@ ul.tasklist li
     background-size: 70%
     background-repeat: no-repeat
     background-position: center
-    background-color: $brown
     transition: opacity .2s ease, background-color .2s ease
-    &:hover
-      background-color: lighten($brown, 10%)
 
 ul.boardlist li
   &:hover a.remove
@@ -127,13 +62,10 @@ ul.boardlist li
     height: 23px
     width: 28px
     border-radius: 5px
-    background-color: $brown
     background-image: asset-url('icons/delete.svg')
     background-size: 55%
     background-repeat: no-repeat
     background-position: center
-    &:hover
-      background-color: lighten($brown, 10%)
   &.home-board
     &:after
       content: '(home-board)'
@@ -164,13 +96,8 @@ ul.boardlist li
     display: inline-block
     position: relative
     width: 120%
-    background-color: $purple
-    border: 2px solid $purple-l
-    border-radius: 5px
     padding: 4px 10px
     margin-bottom: 5px
-    &:hover
-      background-color: $purple-l
   @media only screen and (max-width: $MINImax)
     padding-top: 10px
     .alink
@@ -181,28 +108,3 @@ ul.boardlist li
   @media only screen and (max-width: $MOBILEmax)
     .alink
       width: unset
-
-
-form
-  input[type="submit"]
-    color: $turq
-    border: 3px solid lighten($brown, 5%)
-    border-radius: 10px
-    font-weight: bold
-    font-family: 'Righteous', sans-serif
-    background-color: $brown-d
-    padding: 5px 25px
-    transition: background-color .4s ease
-    &:hover
-      background-color: $purple
-  input
-    border: none
-    border-bottom: 3px solid lighten($brown, 5%)
-    background-color: $purple
-    font-family: 'Merriweather', serif
-    color: $white
-    font-size: 22px
-    caret-color: $turq
-    padding: 3px 8px 0
-    &:focus
-      outline-width: 0

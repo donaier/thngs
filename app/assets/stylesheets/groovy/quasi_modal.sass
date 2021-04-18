@@ -1,0 +1,32 @@
+.quasi-modal.active
+  .overlay
+    background-color: darken($bg-d, 10%)
+
+.quasi-modal .h
+  .content
+    background-color: lighten($bg-off, 6%)
+    border: 3px solid lighten(lighten($bg-off, 6%), 40%)
+    border-radius: 10px
+
+form small
+  color: lighten(lighten($bg-off, 6%), 40%)
+  &.tomorrow
+    color: $loud-d
+  &.one
+    color: $acc-1-d
+  &.two
+    color: $acc-2-d
+  &.three
+    color: $acc-3-d
+
+form input
+  border: none
+  border-bottom: 3px solid lighten($bg, 5%)
+  background-color: $bg-off
+  font-family: 'Merriweather', serif
+  color: $white
+  font-size: 22px
+  caret-color: $loud
+  padding: 3px 8px 0
+  &:focus
+    outline-width: 0

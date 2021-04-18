@@ -1,0 +1,30 @@
+.header
+  background-color: lighten($bg-off, 6%)
+  border-bottom: $stroke solid $acc-3-d
+
+  #header-logo
+    path
+      fill: $white
+      &.r3
+        fill: $acc-1
+      &.r2
+        fill: $acc-2
+      &.r1
+        fill: $acc-3
+
+  a:hover #header-logo
+    path.r1
+      fill: $acc-1
+      transform: rotate(90deg)
+    path.r3
+      fill: $acc-3
+
+  .header-links
+    a.header-link
+      background-color: lighten(lighten($bg-off, 6%), 5%)
+      &:hover
+        background-color: lighten(lighten($bg-off, 6%), 10%)
+
+.header-interceptor
+  .header-link
+    background-color: $acc-3-d

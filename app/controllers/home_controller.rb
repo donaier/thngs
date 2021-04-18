@@ -22,4 +22,10 @@ class HomeController < ApplicationController
       current_user.update(home_board_id: @board.id)
     end
   end
+
+  def set_theme
+    if current_user
+      current_user.update(theme: params[:theme])
+    end
+  end
 end

@@ -1,0 +1,37 @@
+a.add-link
+  background-color: $acc-1-d
+  color: lighten($bg-off, 6%)
+  &:hover
+    color: $white
+    background-color: $loud
+
+ul.tasklist, ul.boardlist
+  li
+    background-color: $bg-d
+    border: 2px solid $bg-d
+
+ul.tasklist li
+  &.prio-1
+    border: 2px solid $acc-1
+  &.prio-2
+    border: 2px solid $acc-2
+  &.prio-3
+    border: 2px solid $acc-3
+  a.check
+    background-color: $bg
+    &:hover
+      background-color: lighten($bg, 10%)
+
+ul.boardlist li
+  a.remove
+    background-color: $bg
+    &:hover
+      background-color: lighten($bg, 10%)
+
+.linklist
+  .alink
+    background-color: $bg-off
+    border: 2px solid lighten($bg-off, 6%)
+    border-radius: 5px
+    &:hover
+      background-color: lighten($bg-off, 6%)

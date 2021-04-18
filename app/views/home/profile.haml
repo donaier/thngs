@@ -9,6 +9,11 @@
   %select{ name: 'home_board', id: 'home-board'}
     - @boards.each do |board|
       %option{ value: board.id, selected: current_user.home_board_id == board.id }= board.title
+  %br
+  %label{ for: 'pref-theme' } Theme?
+  %select{ name: 'pref_theme', id: 'pref-theme'}
+    %option{ value: 'groovy', selected: current_user.theme_class == 'groovy' } Groovy
+    %option{ value: 'bubblegum', selected: current_user.theme_class == 'bubblegum' } BubbleGum
 
 .container.text-sm-center
   %h3.flashy Boards
@@ -26,9 +31,15 @@
               = link_to '', board_path(board), method: :delete, remote: true, class: 'remove'
 
 :javascript
-  $('.profile-settings select').on('change', function(e) {
+  $('.profile-settings select[name="home_board"]').on('change', function(e) {
     $.ajax({
       url: "/set_home_board/" + $(e.target).val(),
       method: "PATCH"
     });
   });
+    $('.profile-settings select[name="pref_theme"]').on('change', function(e) {
+      $.ajax({
+        url: "/set_theme/" + $(e.target).val(),
+        method: "PATCH"
+      });
+    });

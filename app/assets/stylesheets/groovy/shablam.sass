@@ -1,0 +1,29 @@
+h1, h2, h3, h4
+  &.flashy
+    display: inline-block
+    padding-left: 45px
+    padding-right: 40px
+    margin-top: 24px
+    margin-bottom: 4px
+    overflow: hidden
+    position: relative
+    &:before
+      content: ''
+      display: inline-block
+      position: absolute
+      border: $stroke solid transparent
+      background-color: $acc-2-d
+      border-left-color: $acc-1-d
+      border-right-color: $acc-3-d
+      width: $stroke * 3
+      height: 100px
+      top: -50%
+      left: 10px
+      transform: rotate(23deg)
+
+    @media only screen and (max-width: $MINImax)
+      font-size: 18px
+      line-height: 24px
+      margin-left: -20px
+      margin-top: 8px
+      margin-bottom: -4px
