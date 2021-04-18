@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :set_board, only: [:show, :edit, :destroy]
 
   def index
     @boards = Board.all
@@ -22,25 +22,11 @@ class BoardsController < ApplicationController
       if @board.save
         if current_user.boards.count > 1
           format.js { render :add_board }
-          format.json { render :show, status: :created, location: @board }
         else
           format.html { redirect_to root_path }
         end
       else
         format.html { render :new }
-        format.json { render json: @board.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @board.update(board_params)
-        format.html { render :index, board: @board }
-        format.json { render :show, status: :ok, location: @board }
-      else
-        format.html { render :edit }
-        format.json { render json: @board.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -1,0 +1,3 @@
+%li{ class: "#{task.flg_tomorrow ? 'tomorrow' : ''} prio-#{task.nbr_prio}", id: "task-#{task.id}" }
+  = task.text
+  = link_to '', complete_task_path(task.id), method: :patch, remote: true, class: 'check'
