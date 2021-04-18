@@ -6,14 +6,9 @@ a.add-link
   height: 24px
   width: 44px
   border-radius: 15px
-  // background-color: $yellow-d
-  // color: $purple-l
   font-size: 22px
   line-height: 22px
   z-index: 3
-  // &:hover
-  //   color: $white
-  //   background-color: $turq
   &.new-lnk
     font-size: 18px
     right: 54px
@@ -25,8 +20,6 @@ ul.tasklist, ul.boardlist
     position: relative
     font-size: 18px
     list-style-type: none
-    // background-color: $brown-d
-    // border: 2px solid $brown-d
     border-radius: 5px
     margin-bottom: 10px
     padding: 0 8px
@@ -42,12 +35,6 @@ ul.tasklist li
     margin-bottom: 0
   &.tomorrow
     opacity: .5
-  // &.prio-1
-  //   border: 2px solid $yellow
-  // &.prio-2
-  //   border: 2px solid $orange
-  // &.prio-3
-  //   border: 2px solid $red
   a.check
     opacity: 0
     display: inline-block
@@ -61,10 +48,7 @@ ul.tasklist li
     background-size: 70%
     background-repeat: no-repeat
     background-position: center
-    // background-color: $brown
     transition: opacity .2s ease, background-color .2s ease
-    &:hover
-      background-color: lighten($brown, 10%)
 
 ul.boardlist li
   &:hover a.remove
@@ -78,13 +62,10 @@ ul.boardlist li
     height: 23px
     width: 28px
     border-radius: 5px
-    // background-color: $brown
     background-image: asset-url('icons/delete.svg')
     background-size: 55%
     background-repeat: no-repeat
     background-position: center
-    // &:hover
-    //   background-color: lighten($brown, 10%)
   &.home-board
     &:after
       content: '(home-board)'
@@ -115,13 +96,8 @@ ul.boardlist li
     display: inline-block
     position: relative
     width: 120%
-    // background-color: $purple
-    // border: 2px solid $purple-l
-    // border-radius: 5px
     padding: 4px 10px
     margin-bottom: 5px
-    // &:hover
-    //   background-color: $purple-l
   @media only screen and (max-width: $MINImax)
     padding-top: 10px
     .alink

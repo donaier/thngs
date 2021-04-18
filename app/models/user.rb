@@ -17,4 +17,8 @@ class User < ApplicationRecord
       boards.first
     end
   end
+
+  def theme_class
+    theme || 'groovy'
+  end
 end
