@@ -12,6 +12,8 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'quasi_modal'
 
+    = favicon_link_tag asset_path('favicon.png')
+
     %link{ rel: 'manifest', href: '/manifest.json' }
 
   %body{ class: current_user.try(:wants_help) ? 'show-help' : '' }
