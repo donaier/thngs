@@ -11,7 +11,7 @@ class User < ApplicationRecord
   end
 
   def home_board
-    if home_board_id
+    if home_board_id && Board.exists?(home_board_id)
       Board.find(home_board_id)
     else
       boards.first
