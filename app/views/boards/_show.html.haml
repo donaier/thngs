@@ -16,3 +16,13 @@
 
   - @home_board.lists.each do |list|
     = render partial: 'lists/show', locals: { list: list }
+
+:javascript
+  window.addEventListener("turbolinks:load", () => {
+    $(document).keypress(function(){
+      // console.log(event.which);
+      if(event.which == 116 && !$('.quasi-modal').hasClass('active')){
+        $.ajax({url: "#{new_task_path(board: @home_board)}"});
+      }
+    });
+  });

@@ -11,4 +11,12 @@ class Board < ApplicationRecord
   def orphan_lnks
     lnks.where(list_id: nil)
   end
+
+  def lists_as_regex
+    @str = ""
+    lists.each do |l|
+      @str << l.title << '|'
+    end
+    @str.delete_suffix('|')
+  end
 end

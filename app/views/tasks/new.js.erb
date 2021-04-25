@@ -30,6 +30,10 @@ $('.quasi-modal .content input').on('input', function(e) {
       break;
     }
   }
+  if (/^\/<%= Board.find(params[:board]).lists_as_regex %>/.test($(e.target).val())) {
+    // todo set list in tasks/form and show list path as /board/list/...
+    $(e.target).val('')
+  }
 })
 
 setTomorrow = function(input) {
