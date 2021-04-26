@@ -17,7 +17,9 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-
+    if params[:list_name] && !@task.list && List.where(title: params[:list_name]).any?
+      @task.update(list_id: List.where(title: params[:list_name]).first.id)
+    end
     respond_to do |format|
       if @task.save
         format.js { render :add_task }

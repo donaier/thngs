@@ -4,6 +4,7 @@
   = f.hidden_field :board_id, value: params[:board]
   = f.hidden_field :flg_tomorrow
   = f.hidden_field :nbr_prio
+  = hidden_field_tag :list_name
   .additionals
     - if params[:list]
       %small.float-right.pr-2
