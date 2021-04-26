@@ -1,4 +1,3 @@
 $('#list-<%= @task.list_id %> ul.tasklist').append("<%= j (render partial: 'tasks/listed_task', locals: { task: @task }) %>")
 
-$('.quasi-modal').removeClass('active')
-$('.quasi-modal .content').html("")
+// rest is handled in boards#show js stuff
