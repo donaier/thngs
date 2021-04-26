@@ -26,6 +26,16 @@
       }
       if (event.key == 'Escape' && $('.quasi-modal').hasClass('active')) {
         $('.quasi-modal').removeClass('active')
+        $('.quasi-modal .content input').val('')
+      }
+      if (event.key == 'Enter') {
+        if (event.shiftKey) {
+          $('.quasi-modal .content input').val('')
+          $('.quasi-modal .content small.modifier').addClass('d-none')
+        } else {
+          $('.quasi-modal').removeClass('active')
+          $('.quasi-modal .content').html('')
+        }
       }
     });
   });
