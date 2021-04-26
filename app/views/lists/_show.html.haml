@@ -1,8 +1,8 @@
 .container.text-sm-center
   %h3.flashy= list.title
 %section.container{ id: "list-#{list.id}" }
-  = link_to '+', new_task_path(list: list, board: @board), class: 'add-link', remote: true
-  = link_to '#', new_lnk_path(list: list, board: @board), class: 'add-link new-lnk', remote: true
+  = link_to '+', new_task_path(list: list, board: @home_board), class: 'add-link', remote: true
+  = link_to '#', new_lnk_path(list: list, board: @home_board), class: 'add-link new-lnk', remote: true
   .row
     .col-md-9.col-lg-10.col-12
       %ul.tasklist

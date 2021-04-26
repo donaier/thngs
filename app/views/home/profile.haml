@@ -37,9 +37,9 @@
       method: "PATCH"
     });
   });
-    $('.profile-settings select[name="pref_theme"]').on('change', function(e) {
-      $.ajax({
-        url: "/set_theme/" + $(e.target).val(),
-        method: "PATCH"
-      });
+  $('.profile-settings select[name="pref_theme"]').on('change', function(e) {
+    $.ajax({
+      url: "/set_theme/" + $(e.target).val(),
+      method: "PATCH"
     });
+  });

@@ -30,6 +30,13 @@ $('.quasi-modal .content input').on('input', function(e) {
       break;
     }
   }
+  if (/^\/<%= Board.find(params[:board]).lists_as_regex %>/.test($(e.target).val())) {
+    $(e.target).closest('form').find("input[name='list_name']").val($(e.target).val().substring(1))
+    $('#new_task .additionals').prepend(
+      '<small class="float-right pr-2">~/<%= Board.find(params[:board]).title %>/' + $(e.target).val().substring(1) + '/...</small>'
+    )
+    $(e.target).val('')
+  }
 })
 
 setTomorrow = function(input) {
