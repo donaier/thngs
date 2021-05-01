@@ -15,7 +15,7 @@ form.new_user
     text-align: center
   span.board-time
     font-weight: bold
-  &.active
+  &.extra-time
     .unless
       opacity: 1
       cursor: default
@@ -33,3 +33,11 @@ form.new_user
     transition: opacity .2s ease
     &:hover
       opacity: 1
+
+  @media only screen and (max-width: $MINImax)
+    select
+      display: block
+      margin-left: -4px
+      text-align: left
+    &.extra-time .extra
+      display: block
