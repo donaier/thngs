@@ -24,10 +24,14 @@
       if (event.key == 't' && !$('.quasi-modal').hasClass('active')) {
         $.ajax({url: "#{new_task_path(board: @home_board)}"});
       }
+      if (event.key == 'l') {
+        $.ajax({url: "#{new_list_path(board: @home_board)}"});
+      }
       if (event.key == 'Escape' && $('.quasi-modal').hasClass('active')) {
         $('.quasi-modal').removeClass('active')
         $('.quasi-modal .content input').val('')
       }
+      // form is submitted by default, this just handles the modal
       if (event.key == 'Enter') {
         if (event.shiftKey) {
           $('.quasi-modal .content input').val('')
