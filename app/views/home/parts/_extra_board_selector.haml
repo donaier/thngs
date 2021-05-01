@@ -1,0 +1,3 @@
+%select.extra{ name: 'extra_board', id: 'extra-board'}
+  - @boards.each do |board|
+    %option{ value: board.id, selected: current_user.extra_board_id == board.id }= board.title

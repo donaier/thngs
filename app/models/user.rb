@@ -11,14 +11,16 @@ class User < ApplicationRecord
   end
 
   def home_board
-    if home_board_id && Board.exists?(home_board_id)
-      Board.find(home_board_id)
+    if board_time == 'always'
+      if home_board_id && Board.exists?(home_board_id)
+        Board.find(home_board_id)
+      else
+        boards.first
+      end
+    elsif (extra_board_id ) && ((extra_time == 'weekends' && [0,6].include?(Time.now.wday)) || (extra_time == 'healthy weekends' && [0,5,6].include?(Time.now.wday)))
+      Board.find(extra_board_id)
     else
       boards.first
     end
-  end
-
-  def theme_class
-    theme || 'groovy'
   end
 end

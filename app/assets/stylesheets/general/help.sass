@@ -1,5 +1,6 @@
 .help
   display: none
+  line-height: 18px
 .show-help .help
   display: block
 .help-section
@@ -18,8 +19,12 @@
     position: absolute
     left: 5px
     bottom: 5px
+  small
+    display: block
 
 @media only screen and (max-width: $MINImax)
+  .help
+    line-height: 18px
   .help-icon
     &::before
       height: 16px

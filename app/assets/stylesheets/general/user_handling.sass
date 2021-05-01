@@ -3,3 +3,41 @@ form.new_user
   input
     display: block
     margin: 15px auto 10px
+
+.supersettings
+  font-size: 18px
+  select
+    cursor: pointer
+    border: none
+    background: none
+    appearance: none
+    font-weight: bold
+    text-align: center
+  span.board-time
+    font-weight: bold
+  &.extra-time
+    .unless
+      opacity: 1
+      cursor: default
+      &:after
+        content: ''
+    .extra
+      display: inline
+  .extra
+    display: none
+  .unless
+    cursor: pointer
+    opacity: .2
+    &:after
+      content: '?'
+    transition: opacity .2s ease
+    &:hover
+      opacity: 1
+
+  @media only screen and (max-width: $MINImax)
+    select
+      display: block
+      margin-left: -4px
+      text-align: left
+    &.extra-time .extra
+      display: block

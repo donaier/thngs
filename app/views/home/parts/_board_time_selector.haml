@@ -1,0 +1,3 @@
+%select{ name: 'board_time', id: 'board-time', disabled: current_user.board_time == 'always' ? true : false }
+  - ['always', 'workdays'].each do |time|
+    %option{ value: time, selected: current_user.board_time == time }= time

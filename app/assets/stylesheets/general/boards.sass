@@ -66,9 +66,6 @@ ul.boardlist li
     background-size: 55%
     background-repeat: no-repeat
     background-position: center
-  &.home-board
-    &:after
-      content: '(home-board)'
 
 @media only screen and (max-width: $MINImax)
   ul.tasklist li, ul.boardlist li
@@ -79,13 +76,12 @@ ul.boardlist li
     &.fadeout
       margin-bottom: -23px
 
-  ul.tasklist li
-    a.check
-      opacity: 1
-      right: 1px
-      top: 1px
-      height: 19px
-      width: 28px
+  ul.tasklist li a.check, ul.boardlist li a.remove
+    opacity: 1
+    right: 1px
+    top: 1px
+    height: 19px
+    width: 28px
 
 .linklist
   text-align: right
