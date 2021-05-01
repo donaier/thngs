@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def theme_class
     theme || 'groovy'
   end
+
+  def settings
+    
+  end
 end

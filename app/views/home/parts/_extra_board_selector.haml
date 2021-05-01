@@ -1,0 +1,3 @@
+%select.extra{ name: 'extra_board', id: 'extra-board'}
+  - (@boards - [current_user.home_board]).each do |board|
+    %option{ value: board.id }= board.title

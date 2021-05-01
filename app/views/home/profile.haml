@@ -11,9 +11,13 @@
       .supersettings
         %p
           = "Your HomeBoard will "
-          %span.board-time= "#{'always'} "
+          = "#{render partial: '/home/parts/board_time_selector'}".html_safe
           = "be #{render partial: '/home/parts/board_selector'}".html_safe
-          %span.unless= 'unless?'
+          %span.unless
+            = 'unless'
+          %span.extra
+            = "on #{render partial: '/home/parts/extra_time_selector'} it will be".html_safe
+          = "#{render partial: '/home/parts/extra_board_selector'}".html_safe
         %p= "This is enjoyed in the #{render partial: '/home/parts/theme_selector'} Theme.".html_safe
 
 .container.text-sm-center
@@ -26,7 +30,7 @@
         %small boards can only be deleted if empty
       %ul.boardlist
         - @boards.each do |board|
-          %li{ id: "board-#{board.id}", class: board == current_user.home_board ? 'home-board' : '' }
+          %li{ id: "board-#{board.id}" }
             = board.title + " (#{board.lists.count})"
             - if board.lists.empty?
               = link_to '', board_path(board), method: :delete, remote: true, class: 'remove'
@@ -41,6 +45,30 @@
   $('.profile-settings select[name="pref_theme"]').on('change', function(e) {
     $.ajax({
       url: "/set_theme/" + $(e.target).val(),
+      method: "PATCH"
+    });
+  });
+  $('.supersettings #board-time').on('change', function(e) {
+    if ($(e.target).val() == 'always') {
+      $(e.target).parents('.supersettings').removeClass('active');
+      $(e.target).attr('disabled', true);
+    }
+  })
+  $('.supersettings .unless').click( function(e) {
+    $(e.target).parents('.supersettings').addClass('active');
+    $(e.target).siblings('#board-time').attr('disabled', false);
+    $(e.target).siblings('#board-time').val('workdays');
+  });
+
+  $('.supersettings select').on('change', function(e) {
+    var settings = {
+      'board_time': $('.supersettings #board-time').val(),
+      'home_board_id': $('.supersettings #home-board').val(),
+      'extra_time': $('.supersettings #extra-time').val(),
+      'extra_board_id': $('.supersettings #extra-board').val()
+    };
+    $.ajax({
+      url: "/set_tings/" + encodeURIComponent(JSON.stringify(settings)),
       method: "PATCH"
     });
   });

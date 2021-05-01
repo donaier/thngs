@@ -15,6 +15,12 @@ class HomeController < ApplicationController
     current_user.toggle_help
   end
 
+  def set_tings
+    if params[:settings]
+      current_user.update(JSON.parse params[:settings])
+    end
+  end
+
   def set_home_board
     @board = Board.find(params[:id])
 
