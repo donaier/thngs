@@ -3,17 +3,18 @@
     %h1.header-title You
 
 %section.container.profile-settings
-  = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'header-link more'
+  = link_to destroy_user_session_path, method: :delete, class: 'header-link more' do
+    %button.btn.btn-block Logout
   %br
-  %label{ for: 'home-board' } Home Board?
-  %select{ name: 'home_board', id: 'home-board'}
-    - @boards.each do |board|
-      %option{ value: board.id, selected: current_user.home_board_id == board.id }= board.title
-  %br
-  %label{ for: 'pref-theme' } Theme?
-  %select{ name: 'pref_theme', id: 'pref-theme'}
-    %option{ value: 'groovy', selected: current_user.theme_class == 'groovy' } Groovy
-    %option{ value: 'bubblegum', selected: current_user.theme_class == 'bubblegum' } BubbleGum
+  .row
+    .col
+      .supersettings
+        %p
+          = "Your HomeBoard will "
+          %span.board-time= "#{'always'} "
+          = "be #{render partial: '/home/parts/board_selector'}".html_safe
+          %span.unless= 'unless?'
+        %p= "This is enjoyed in the #{render partial: '/home/parts/theme_selector'} Theme.".html_safe
 
 .container.text-sm-center
   %h3.flashy Boards
