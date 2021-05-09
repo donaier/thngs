@@ -1,6 +1,6 @@
 $('.quasi-modal').addClass('active')
 $('.quasi-modal .content').html("<%= j (render partial: 'form') %>")
-$('.quasi-modal .content input').focus()
+$('.quasi-modal .content input#task_text').focus()
 
 $('.quasi-modal .content input').on('input', function(e) {
   if (/^-[ip][123]|^-t/.test($(e.target).val())) {
