@@ -11,7 +11,7 @@ class User < ApplicationRecord
   end
 
   def home_board
-    if (board_time == 'always') || ((board_time == 'weekends' && [1,2,3,4,5].include?(Time.now.wday)) || (board_time == 'healthy weekends' && [1,2,3,4].include?(Time.now.wday)))
+    if (board_time == 'always') || ((extra_time == 'weekends' && ((1..5).to_a).include?(Time.now.wday)) || (extra_time == 'healthy weekends' && ((1..4).to_a).include?(Time.now.wday)))
       if home_board_id && Board.exists?(home_board_id)
         Board.find(home_board_id)
       else
