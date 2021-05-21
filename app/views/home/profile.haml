@@ -38,9 +38,9 @@
             - if board.lists.empty?
               = link_to '', board_path(board), method: :delete, remote: true, class: 'remove'
             - else
-              %ul.listlist
+              %ul.listlist.sortable
                 - board.lists.each do |list|
-                  %li= list.title
+                  %li{ id: list.sortable_id }= list.title
 
 :javascript
   $('.sortable').railsSortable();
