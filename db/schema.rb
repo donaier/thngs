@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_172020) do
+ActiveRecord::Schema.define(version: 2021_05_21_125519) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
     t.integer "owner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "sort"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_172020) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "board_id"
+    t.integer "sort"
   end
 
   create_table "lnks", force: :cascade do |t|
