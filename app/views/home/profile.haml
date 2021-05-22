@@ -40,7 +40,9 @@
             - else
               %ul.listlist.sortable
                 - board.lists.each do |list|
-                  %li{ id: list.sortable_id }= list.title
+                  %li{ id: list.sortable_id, class: (list.tasks.any? || list.lnks.any?) ? "with-child list-#{list.id}" : "list-#{list.id}" }
+                    = list.title
+                    = link_to '', list_path(list), method: :delete, remote: true, class: 'remove'
 
 :javascript
   $('.sortable').railsSortable();

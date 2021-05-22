@@ -29,10 +29,15 @@ class ListsController < ApplicationController
 
   # todo
   def destroy
+    @list.tasks.each do |task|
+      task.update(list_id: nil, board_id: @list.board_id)
+    end
+    @list.lnks.each do |lnk|
+      lnk.update(list_id: nil, board_id: @list.board_id)
+    end
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render :remove_list }
     end
   end
 

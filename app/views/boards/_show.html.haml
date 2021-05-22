@@ -6,7 +6,7 @@
       .col-md-9.col-lg-10.col-12
         %ul.tasklist
           - incomplete(@home_board.orphan_tasks.listed).each do |task|
-            %li{ class: "#{task.flg_tomorrow ? 'tomorrow' : ''} prio-#{task.nbr_prio}", id: "task-#{task.id}" }
+            %li{ class: "#{task.tomorrow_class} prio-#{task.nbr_prio}", id: "task-#{task.id}" }
               = task.text
               = link_to '', complete_task_path(task.id), method: :patch, remote: true, class: 'check'
       .col-md-3.col-lg-2.col-12
