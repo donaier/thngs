@@ -31,14 +31,22 @@
     .col-12
       .help.help-icon.help-section.text-center
         %small boards can only be deleted if empty
-      %ul.boardlist
-        - @boards.each do |board|
-          %li{ id: "board-#{board.id}" }
+      %ul.boardlist.sortable
+        - @boards.each_with_sortable_id do |board, sort|
+          %li{ id: sort, class: "board-#{board.id}" }
             = board.title + " (#{board.lists.count})"
             - if board.lists.empty?
               = link_to '', board_path(board), method: :delete, remote: true, class: 'remove'
+            - else
+              %ul.listlist.sortable
+                - board.lists.each do |list|
+                  %li{ id: list.sortable_id, class: (list.tasks.any? || list.lnks.any?) ? "with-child list-#{list.id}" : "list-#{list.id}" }
+                    = list.title
+                    = link_to '', list_path(list), method: :delete, remote: true, class: 'remove'
 
 :javascript
+  $('.sortable').railsSortable();
+
   $('.supersettings #board-time').on('change', function(e) {
     if ($(e.target).val() == 'always') {
       $(e.target).parents('.supersettings').removeClass('extra-time');
@@ -65,6 +73,7 @@
       method: "PATCH"
     });
     if (settings['theme']) {
+      $('html').removeClass('raw');
       $('html').removeClass('groovy');
       $('html').removeClass('bubblegum');
 

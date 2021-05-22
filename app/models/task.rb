@@ -4,10 +4,20 @@ class Task < ApplicationRecord
   validates :text, presence: true
 
   def self.listed
-    order(flg_tomorrow: :asc).order(nbr_prio: :desc)
+    order(flg_tomorrow: :desc).order(nbr_prio: :desc)
   end
 
   def completed?
     completed_at != nil
+  end
+
+  def tomorrow_class
+    if flg_tomorrow && created_at > (Time.now - 1.day)
+      'tomorrow'
+    elsif flg_tomorrow
+      'isnow'
+    else
+      nil
+    end
   end
 end

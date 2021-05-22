@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   end
 
   def profile
-    @boards = current_user.boards
+    @boards = current_user.boards.order(:sort).all
   end
 
   def toggle_help
