@@ -4,6 +4,7 @@
   margin-right: 84px
 
   .overlay
+    background-color: BurlyWood
     position: fixed
     top: 0
     left: 0
@@ -17,6 +18,7 @@
       .highlight-pillar
         height: 100vh
     .highlight-pillar
+      background-color: AntiqueWhite
       position: absolute
       left: 50%
       margin-left: 52px
@@ -31,6 +33,11 @@
     margin-bottom: 0
     margin-left: 64px
     padding-left: 0
+    h1
+      transition: color .4s ease
+    &:not(.open)
+      h1
+        color: AntiqueWhite
     &.open
       li:not(.active)
         max-height: 150px
@@ -42,6 +49,8 @@
       list-style-type: none
       overflow: hidden
       transition: max-height .4s ease, margin-top .4s ease
+    a:hover h1
+      color: darken(Peru, 10%)
 
   @media only screen and (max-width: $MINImax)
     margin-left: 0

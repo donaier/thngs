@@ -1,4 +1,5 @@
 .help
+  background-color: AntiqueWhite
   display: none
   line-height: 18px
 .show-help .help
@@ -6,31 +7,16 @@
 .help-section
   border-radius: 5px
   margin-bottom: 10px
-.help-icon
-  padding: 2px 5px 3px 35px
-  position: relative
-  &::before
-    content: ''
-    display: block
-    height: 20px
-    width: 20px
-    background-image: asset-url('icons/help-bright.svg')
-    background-size: contain
-    position: absolute
-    left: 5px
-    bottom: 5px
+.with-help-icon
+  background-color: transparent
   small
     display: block
+  padding: 2px
 
 @media only screen and (max-width: $MINImax)
   .help
     line-height: 18px
-  .help-icon
-    &::before
-      height: 16px
-      width: 16px
-      left: 10px
-      bottom: 6px
+  .with-help-icon
     small
       font-size: 10px
       line-height: 12px

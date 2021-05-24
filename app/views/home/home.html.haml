@@ -2,7 +2,8 @@
   .header-interceptor
     .container.position-relative
       = render partial: 'parts/board_nav'
-      = link_to '+', new_list_path(board: @home_board.id), class: 'header-link add-link', remote: true
+      = link_to new_list_path(board: @home_board.id), class: 'header-link add-link', remote: true do
+        = inline_svg_tag('icons/add', class: 'add-icon icon')
   = render partial: 'boards/show'
 
 - else
@@ -10,7 +11,9 @@
     .container.position-relative
       %h1.header-title
         Welcome
-      = link_to '+', new_board_path, class: 'header-link add-link', remote: true
+      = link_to new_board_path, class: 'header-link add-link', remote: true do
+        = inline_svg_tag('icons/add', class: 'add-icon icon')
+
   %section.container
     .row
       .col-12

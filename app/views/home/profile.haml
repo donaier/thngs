@@ -21,12 +21,13 @@
   .row.logout
     .col
       = link_to destroy_user_session_path, method: :delete, class: 'header-link more' do
-        %button.btn.btn-block Logout
+        %button.btn.btn-block.btn-success Logout
 
-.container.text-sm-center
+.container.text-sm-center.pt-4
   %h3.flashy Boards
 %section.container
-  = link_to '+', new_board_path, class: 'add-link', remote: true
+  = link_to new_board_path, class: 'add-link', remote: true do
+    = inline_svg_tag('icons/add', class: 'add-icon icon')
   .row.no-gutters
     .col-12
       .help.help-icon.help-section.text-center
@@ -36,13 +37,15 @@
           %li{ id: sort, class: "board-#{board.id}" }
             = board.title + " (#{board.lists.count})"
             - if board.lists.empty?
-              = link_to '', board_path(board), method: :delete, remote: true, class: 'remove'
+              = link_to board_path(board), method: :delete, remote: true, class: 'remove' do
+                = inline_svg_tag('icons/delete', class: 'closer-icon')
             - else
               %ul.listlist.sortable
                 - board.lists.each do |list|
                   %li{ id: list.sortable_id, class: (list.tasks.any? || list.lnks.any?) ? "with-child list-#{list.id}" : "list-#{list.id}" }
                     = list.title
-                    = link_to '', list_path(list), method: :delete, remote: true, class: 'remove'
+                    = link_to list_path(list), method: :delete, remote: true, class: 'remove' do
+                      = inline_svg_tag('icons/delete', class: 'closer-icon')
 
 :javascript
   $('.sortable').railsSortable();

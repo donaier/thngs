@@ -1,14 +1,17 @@
 .lists
   %section.container#list-
-    = link_to '+', new_task_path(board: @home_board), class: 'add-link', remote: true
-    = link_to '#', new_lnk_path(board: @home_board), class: 'add-link new-lnk', remote: true
+    = link_to new_task_path(board: @home_board), class: 'add-link', remote: true do
+      = inline_svg_tag('icons/add', class: 'add-icon icon')
+    = link_to new_lnk_path(board: @home_board), class: 'add-link new-lnk', remote: true do
+      = inline_svg_tag('icons/hash', class: 'lnk-icon icon')
     .row.no-gutters
       .col-md-9.col-lg-10.col-12
         %ul.tasklist
           - incomplete(@home_board.orphan_tasks.listed).each do |task|
             %li{ class: "#{task.tomorrow_class} prio-#{task.nbr_prio}", id: "task-#{task.id}" }
               = task.text
-              = link_to '', complete_task_path(task.id), method: :patch, remote: true, class: 'check'
+              = link_to complete_task_path(task.id), method: :patch, remote: true, class: 'check' do
+                = inline_svg_tag('icons/check', class: 'icon icon-check')
       .col-md-3.col-lg-2.col-12
         .linklist
           - @home_board.orphan_lnks.each do |lnk|
@@ -34,7 +37,6 @@
       // form is submitted by default, this just handles the modal
       if (event.key == 'Enter') {
         if (event.shiftKey) {
-          // $('.quasi-modal .content input').val('')
           $('.quasi-modal .content input#task_text').val('')
           $('.quasi-modal .content small.modifier').addClass('d-none')
         } else {

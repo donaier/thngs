@@ -1,5 +1,6 @@
 .quasi-modal.active
   .overlay
+    background-color: darken(Peru, 80%)
     position: fixed
     top: 0
     bottom: 0
@@ -21,6 +22,9 @@
   .content
     position: relative
     left: -50%
+    background-color: BurlyWood
+    border: 3px solid Peru
+    border-radius: 10px
 
   form input
     min-width: 440px
@@ -28,8 +32,13 @@
     border-radius: 8px
     font-size: 24px
     outline: none
+    border: none
+    background-color: AntiqueWhite
+    font-family: 'Merriweather', serif
+    caret-color: Peru
     &:focus
       outline: none
+      outline-width: 0
   form small
     display: inline-block
     padding-bottom: 2px

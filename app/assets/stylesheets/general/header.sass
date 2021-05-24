@@ -2,6 +2,8 @@
   position: relative
   padding: 20px 0
   margin-bottom: 30px
+  background-color: Peru
+  border-bottom: 4px solid BurlyWood
 
   img, svg
     height: 84px
@@ -13,6 +15,21 @@
     path
       transition: fill .8s ease, transform .8s ease
       transform-origin: center
+      fill: AntiqueWhite
+      &.r3
+        fill: lighten(AntiqueWhite, 10%)
+      &.r2
+        fill: AntiqueWhite
+      &.r1
+        fill: darken(AntiqueWhite, 10%)
+
+  a:hover #header-logo
+    path.r1
+      fill: lighten(AntiqueWhite, 10%)
+      transform: rotate(90deg)
+    path.r3
+      fill: darken(AntiqueWhite, 10%)
+
 
   .header-links
     position: absolute
@@ -20,23 +37,29 @@
     bottom: 0
     padding-right: 10px
     a.header-link
+      background-color: BurlyWood
       z-index: 8
       display: inline-block
       position: relative
       border-radius: 10px
       padding: 0 20px
-      background-image: asset-url('icons/chain-dark.svg')
-      background-size: contain
-      background-position: center
-      background-repeat: no-repeat
+      margin-left: 5px
       height: 28px
       width: 28px
+      .icon
+        position: absolute
+        left: 0
+        height: 100%
+        width: 100%
+        path
+          fill: Peru
       &.help-tgl
         z-index: 12
-        background-image: asset-url('icons/help-bright.svg')
-        background-size: 65%
+        .help-icon path
+          fill: AntiqueWhite
         &.off
-          background-image: asset-url('icons/help-dark.svg')
+          .help-icon path
+            fill: Peru
 
 .header-interceptor
   position: absolute
@@ -49,6 +72,7 @@
     left: 50%
     margin-top: 52px
     margin-left: 64px
+    color: AntiqueWhite
   .header-link
     position: absolute
     top: 62px

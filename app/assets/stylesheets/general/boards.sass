@@ -1,22 +1,32 @@
 a.add-link
+  background-color: Peru
   position: absolute
   top: -14px
-  right: 6px
+  right: 16px
   text-align: center
   height: 24px
   width: 44px
   border-radius: 15px
   font-size: 22px
+  font-weight: bold
   line-height: 22px
   z-index: 3
+  &:hover
+    background-color: darken(Peru, 20%)
   &.new-lnk
     font-size: 18px
     right: 54px
+  .icon
+    height: 70%
+    width: 70%
+    path
+      fill: AntiqueWhite
 
 ul.tasklist, ul.boardlist
   margin-bottom: 0
   padding-left: 0
   li
+    background-color: Peru
     position: relative
     font-size: 18px
     list-style-type: none
@@ -29,6 +39,7 @@ ul.tasklist, ul.boardlist
       margin-bottom: -31px
 
 ul.tasklist li
+  font-weight: 300
   &:hover a.check
     opacity: 1
   &:last-child
@@ -43,14 +54,19 @@ ul.tasklist li
     top: 2px
     height: 23px
     width: 28px
-    background-image: asset-url('icons/check.svg')
     border-radius: 5px
-    background-size: 70%
-    background-repeat: no-repeat
-    background-position: center
     transition: opacity .2s ease, background-color .2s ease
+    .icon
+      height: 80%
+      width: 80%
+      vertical-align: text-top
+      path
+        fill: AntiqueWhite
 
 ul.boardlist li
+  font-weight: 500
+  padding-top: 4px
+  padding-bottom: 4px
   a.remove
     display: inline-block
     position: absolute
@@ -59,10 +75,16 @@ ul.boardlist li
     height: 23px
     width: 28px
     border-radius: 5px
-    background-image: asset-url('icons/delete.svg')
-    background-size: 55%
-    background-repeat: no-repeat
-    background-position: center
+    &:hover .closer-icon path
+      fill: darken(AntiqueWhite, 10%)
+    .closer-icon
+      vertical-align: middle
+      height: 80%
+      width: 80%
+      path
+        fill: AntiqueWhite
+
+
   .listlist li.with-child
     a.remove
       &:before
@@ -70,11 +92,23 @@ ul.boardlist li
         position: absolute
         width: 200px
         font-size: 0.8rem
+        color: AntiqueWhite
         right: 20px
-        opacity: .75
         display: none
       &:hover:before
         display: block
+
+.boardlist .listlist
+  padding-top: 8px
+  li
+    font-weight: 300
+    padding-top: 0
+    padding-bottom: 0
+    background-color: BurlyWood
+    a.remove .closer-icon
+      vertical-align: baseline
+      height: 60%
+      width: 60%
 
 @media only screen and (max-width: $MINImax)
   ul.tasklist li, ul.boardlist li
@@ -98,11 +132,18 @@ ul.boardlist li
   padding-top: 20px
   padding-left: 15px
   .alink
+    color: black
     display: inline-block
     position: relative
     width: 120%
     padding: 4px 10px
     margin-bottom: 5px
+    background-color: AntiqueWhite
+    border: 2px solid Peru
+    border-radius: 5px
+    &:hover
+      background-color: darken(AntiqueWhite, 10%)
+
   @media only screen and (max-width: $MINImax)
     padding-top: 10px
     .alink
