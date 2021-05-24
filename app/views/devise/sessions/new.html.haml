@@ -1,9 +1,9 @@
-%section.container
+%section.container.my-4
   .row.text-center
     .col-4.offset-4.pt-3
       %h1.flashy Log in
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email', class: 'form-control'
-          = f.password_field :password, autocomplete: "current-password", placeholder: 'password', class: 'form-control'
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email', class: 'form-control mb-2'
+          = f.password_field :password, autocomplete: "current-password", placeholder: 'password', class: 'form-control mb-2'
           = f.submit 'do it', class: 'btn btn-success'

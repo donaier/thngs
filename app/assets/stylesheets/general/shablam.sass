@@ -1,0 +1,18 @@
+#header-logo
+  path
+    transition: fill .8s ease, transform .8s ease
+    transform-origin: center
+    fill: AntiqueWhite
+    &.r3
+      fill: lighten(AntiqueWhite, 10%)
+    &.r2
+      fill: AntiqueWhite
+    &.r1
+      fill: darken(AntiqueWhite, 10%)
+
+a:hover #header-logo
+  path.r1
+    fill: lighten(AntiqueWhite, 10%)
+    transform: rotate(90deg)
+  path.r3
+    fill: darken(AntiqueWhite, 10%)

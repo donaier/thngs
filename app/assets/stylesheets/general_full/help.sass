@@ -1,0 +1,23 @@
+.help
+  background-color: AntiqueWhite
+  display: none
+  line-height: 18px
+.show-help .help
+  display: block
+.help-section
+  border-radius: 5px
+  margin-bottom: 10px
+.with-help-icon
+  background-color: transparent
+  small
+    display: block
+  padding: 2px
+
+@media only screen and (max-width: $MINImax)
+  .help
+    line-height: 18px
+  .with-help-icon
+    small
+      font-size: 10px
+      line-height: 12px
+      display: inline-block

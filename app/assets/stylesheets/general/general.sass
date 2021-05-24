@@ -1,37 +1,26 @@
 body
   background: AntiqueWhite
-  font-family: 'Merriweather', serif
 
 section
   background: BurlyWood
   position: relative
-  border-radius: 15px
-  margin-top: 10px
-  margin-bottom: 10px
-  padding-top: 15px
-  padding-bottom: 15px
 
-@media only screen and (max-width: $MINImax)
-  section
-    padding-top: 20px
-    padding-bottom: 5px
-
-a
-  &:hover
-    text-decoration: none
+a:hover
+  text-decoration: none
 
 button, button:focus, .btn:focus
   outline: none
   box-shadow: none
 
 h1, h2, h3, h4
-  font-family: 'Righteous', sans-serif
+  font-weight: 600
   text-transform: uppercase
   color: Peru
 
 p, ul, ol, a
-  font-family: 'Merriweather', serif
-  font-weight: 300
 
 span.white
   color: AntiqueWhite
+
+@media only screen and (max-width: $MINImax)
+  section
