@@ -2,9 +2,8 @@
   .header-interceptor
     .container.position-relative
       = render partial: 'parts/board_nav'
-      = link_to new_list_path(board: @home_board.id), class: 'header-link add-link', remote: true do
-        = inline_svg_tag('icons/add', class: 'add-icon icon')
   = render partial: 'boards/show'
+  = render partial: 'parts/omnibutton'
 
 - else
   .header-interceptor
