@@ -1,9 +1,9 @@
 .lists
   %section.container.list-section.orphan-section#list-
     = link_to new_task_path(board: @home_board), class: 'icon-link add-link d-none d-sm-inline', remote: true do
-      = inline_svg_tag('icons/add', class: 'add-icon icon')
+      = inline_svg_tag('icons/add.svg', class: 'add-icon icon')
     = link_to new_lnk_path(board: @home_board), class: 'icon-link add-link new-lnk d-none d-sm-inline', remote: true do
-      = inline_svg_tag('icons/hash', class: 'lnk-icon icon')
+      = inline_svg_tag('icons/hash.svg', class: 'lnk-icon icon')
     .row
       .col-md-9.col-lg-10.col-12
         %ul.tasklist
@@ -11,13 +11,13 @@
             %li{ class: "#{task.tomorrow_class} prio-#{task.nbr_prio}", id: "task-#{task.id}" }
               = task.text
               = link_to complete_task_path(task.id), method: :patch, remote: true, class: 'icon-link check' do
-                = inline_svg_tag('icons/check', class: 'icon icon-check')
+                = inline_svg_tag('icons/check.svg', class: 'icon icon-check')
       .col-md-3.col-lg-2.col-12
         .linklist
           - @home_board.orphan_lnks.each do |lnk|
             = link_to lnk.href, target: '_blank', class: 'alink' do
               = lnk.text
-              = inline_svg_tag('icons/hash', class: 'lnk-decoration')
+              = inline_svg_tag('icons/hash.svg', class: 'lnk-decoration')
 
   - @home_board.lists.each do |list|
     = render partial: 'lists/show', locals: { list: list }

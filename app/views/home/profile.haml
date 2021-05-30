@@ -27,11 +27,11 @@
   %h3.flashy Boards
 %section.container.list-section
   = link_to new_board_path, class: 'icon-link add-link', remote: true do
-    = inline_svg_tag('icons/add', class: 'add-icon icon')
+    = inline_svg_tag('icons/add.svg', class: 'add-icon icon')
   .row.no-gutters
     .col-12
       .help.with-help-icon.help-section.text-center.mb-2
-        = inline_svg_tag('icons/help', class: 'icon help-icon')
+        = inline_svg_tag('icons/help.svg', class: 'icon help-icon')
         %small boards can only be deleted if empty
       %ul.boardlist.sortable
         - @boards.each_with_sortable_id do |board, sort|
@@ -39,14 +39,14 @@
             = board.title + " (#{board.lists.count})"
             - if board.lists.empty?
               = link_to board_path(board), method: :delete, remote: true, class: 'remove icon-link' do
-                = inline_svg_tag('icons/delete', class: 'icon closer-icon')
+                = inline_svg_tag('icons/delete.svg', class: 'icon closer-icon')
             - else
               %ul.listlist.sortable.pl-3
                 - board.lists.each do |list|
                   %li{ id: list.sortable_id, class: (list.tasks.any? || list.lnks.any?) ? "with-child list-#{list.id}" : "list-#{list.id}" }
                     = list.title
                     = link_to list_path(list), method: :delete, remote: true, class: 'remove icon-link' do
-                      = inline_svg_tag('icons/delete', class: 'icon closer-icon')
+                      = inline_svg_tag('icons/delete.svg', class: 'icon closer-icon')
 
 :javascript
   $('.sortable').railsSortable();

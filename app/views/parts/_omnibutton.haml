@@ -1,8 +1,8 @@
 .omnibutton.text-center
   = link_to new_task_path(board: @home_board), remote: true do
-    = inline_svg_tag('icons/add')
+    = inline_svg_tag('icons/add.svg')
   .even-more
     = link_to new_list_path(board: @home_board), remote: true do
-      = inline_svg_tag('icons/list')
+      = inline_svg_tag('icons/list.svg')
     = link_to new_lnk_path(board: @home_board), remote: true do
-      = inline_svg_tag('icons/hash')
+      = inline_svg_tag('icons/hash.svg')
