@@ -18,6 +18,10 @@
   .tasklist
     li
       background-color: darken(BurlyWood, 10%)
+      transition: transform .4s ease, margin-bottom .4s ease
+      &.fadeout
+        transform: scale(0)
+        margin-bottom: -32px
     .icon-link.check
       position: absolute
       right: 20px
