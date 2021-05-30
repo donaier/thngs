@@ -1,8 +1,10 @@
-.header.container-fluid.text-sm-center
-  = link_to root_path do
+.header.container-fluid.text-sm-center.py-2.py-lg-4
+  = link_to root_path, class: 'header-logo-link' do
     = render 'parts/logo'
   - if current_user
     .container.text-right.position-relative
       .header-links
-        = link_to '', toggle_help_path, method: :patch, class: current_user.wants_help ? 'header-link help-tgl' : 'header-link help-tgl off', remote: true
-        = link_to '', home_profile_path, class: "header-link #{current_page?(home_profile_path) ? 'active' : ''}"
+        = link_to toggle_help_path, method: :patch, class: current_user.wants_help ? 'icon-link help-tgl' : 'icon-link help-tgl off', remote: true do
+          = inline_svg_tag('icons/help', class: 'help-icon icon')
+        = link_to home_profile_path, class: "icon-link #{current_page?(home_profile_path) ? 'active' : ''}" do
+          = inline_svg_tag('icons/chain', class: 'profile-icon icon')

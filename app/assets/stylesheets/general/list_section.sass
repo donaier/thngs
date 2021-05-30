@@ -1,0 +1,68 @@
+.list-section
+  padding-top: 12px
+  &.orphan-section
+    margin-top: 48px
+
+  ul
+    list-style-type: none
+    padding-left: 0
+    li
+      margin: 4px 0
+      padding: 2px 8px
+  .boardlist
+    li
+      background-color: darken(BurlyWood, 10%)
+  .listlist
+    li
+      background-color: BurlyWood
+  .tasklist
+    li
+      background-color: darken(BurlyWood, 10%)
+      transition: transform .4s ease, margin-bottom .4s ease
+      &.fadeout
+        transform: scale(0)
+        margin-bottom: -32px
+    .icon-link.check
+      position: absolute
+      right: 20px
+      background-color: BurlyWood
+  .linklist
+    margin-top: 4px
+    .alink
+      position: relative
+      color: Black
+      padding: 0 8px
+      margin-bottom: 4px
+      border: 2px solid Peru
+      display: block
+      background-color: AntiqueWhite
+      &:hover
+        background-color: darken(AntiqueWhite, 10%)
+      .lnk-decoration
+        position: absolute
+        top: 0
+        right: 0
+        height: 90%
+        transform: rotate(12deg)
+        path
+          fill: BurlyWood
+
+  .add-link
+    position: absolute
+    right: 10px
+    top: -38px
+    &.new-lnk
+      right: 60px
+
+  @media only screen and (max-width: $MINImax)
+    &.orphan-section
+      margin-top: 12px
+    .linklist
+      padding-bottom: 16px
+    .tasklist
+      .icon-link.check
+        height: 20px
+        margin-top: 2px
+
+    .add-link
+      top: -34px

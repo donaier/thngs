@@ -1,3 +1,4 @@
 %li{ class: "#{task.tomorrow_class} prio-#{task.nbr_prio}", id: "task-#{task.id}" }
   = task.text
-  = link_to '', complete_task_path(task.id), method: :patch, remote: true, class: 'check'
+  = link_to complete_task_path(task.id), method: :patch, remote: true, class: 'icon-link check' do
+    = inline_svg_tag('icons/check', class: 'icon icon-check')

@@ -1,0 +1,101 @@
+.header
+  position: relative
+  padding: 20px 0
+  margin-bottom: 30px
+  background-color: Peru
+  border-bottom: 4px solid BurlyWood
+
+  img, svg
+    height: 84px
+    width: 84px
+    z-index: 15
+    position: relative
+
+  #header-logo
+    path
+      transition: fill .8s ease, transform .8s ease
+      transform-origin: center
+      fill: AntiqueWhite
+      &.r3
+        fill: lighten(AntiqueWhite, 10%)
+      &.r2
+        fill: AntiqueWhite
+      &.r1
+        fill: darken(AntiqueWhite, 10%)
+
+  a:hover #header-logo
+    path.r1
+      fill: lighten(AntiqueWhite, 10%)
+      transform: rotate(90deg)
+    path.r3
+      fill: darken(AntiqueWhite, 10%)
+
+
+  .header-links
+    position: absolute
+    right: 0
+    bottom: 0
+    padding-right: 10px
+    a.header-link
+      background-color: BurlyWood
+      z-index: 8
+      display: inline-block
+      position: relative
+      border-radius: 10px
+      padding: 0 20px
+      margin-left: 5px
+      height: 28px
+      width: 28px
+      .icon
+        position: absolute
+        left: 0
+        height: 100%
+        width: 100%
+        path
+          fill: Peru
+      &.help-tgl
+        z-index: 12
+        .help-icon path
+          fill: AntiqueWhite
+        &.off
+          .help-icon path
+            fill: Peru
+
+.header-interceptor
+  position: absolute
+  top: 0
+  width: 100%
+
+  .header-title
+    width: 50%
+    position: relative
+    left: 50%
+    margin-top: 52px
+    margin-left: 64px
+    color: AntiqueWhite
+  .header-link
+    position: absolute
+    top: 62px
+    right: 9px
+
+@media only screen and (max-width: $MINImax)
+  .header
+    padding: 10px 0
+    img, svg
+      height: 44px
+      width: 44px
+      margin-left: 10px
+    .header-links
+      bottom: 16px
+
+  .header-interceptor
+    .header-title
+      left: 0
+      padding-top: 22px
+      padding-left: 0
+      margin-top: 0
+      margin-left: 48px
+      font-size: 24px
+    .header-link
+      top: 55px
+      right: 7px

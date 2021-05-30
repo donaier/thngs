@@ -2,9 +2,9 @@
   .container.position-relative
     %h1.header-title You
 
-.container.text-sm-center
+.container.text-sm-center.pt-3
   %h3.flashy preferences
-%section.container.profile-settings
+%section.container.profile-settings.py-3
   .row
     .col
       .supersettings{ class: current_user.board_time != 'always' ? 'extra-time' : '' }
@@ -20,29 +20,33 @@
         %p= "This is enjoyed in the #{render partial: '/home/parts/theme_selector'} Theme.".html_safe
   .row.logout
     .col
-      = link_to destroy_user_session_path, method: :delete, class: 'header-link more' do
-        %button.btn.btn-block Logout
+      = link_to destroy_user_session_path, method: :delete do
+        %button.btn.btn-block.btn-success Logout
 
-.container.text-sm-center
+.container.text-sm-center.pt-3
   %h3.flashy Boards
-%section.container
-  = link_to '+', new_board_path, class: 'add-link', remote: true
+%section.container.list-section
+  = link_to new_board_path, class: 'icon-link add-link', remote: true do
+    = inline_svg_tag('icons/add', class: 'add-icon icon')
   .row.no-gutters
     .col-12
-      .help.help-icon.help-section.text-center
+      .help.with-help-icon.help-section.text-center.mb-2
+        = inline_svg_tag('icons/help', class: 'icon help-icon')
         %small boards can only be deleted if empty
       %ul.boardlist.sortable
         - @boards.each_with_sortable_id do |board, sort|
           %li{ id: sort, class: "board-#{board.id}" }
             = board.title + " (#{board.lists.count})"
             - if board.lists.empty?
-              = link_to '', board_path(board), method: :delete, remote: true, class: 'remove'
+              = link_to board_path(board), method: :delete, remote: true, class: 'remove icon-link' do
+                = inline_svg_tag('icons/delete', class: 'icon closer-icon')
             - else
-              %ul.listlist.sortable
+              %ul.listlist.sortable.pl-3
                 - board.lists.each do |list|
                   %li{ id: list.sortable_id, class: (list.tasks.any? || list.lnks.any?) ? "with-child list-#{list.id}" : "list-#{list.id}" }
                     = list.title
-                    = link_to '', list_path(list), method: :delete, remote: true, class: 'remove'
+                    = link_to list_path(list), method: :delete, remote: true, class: 'remove icon-link' do
+                      = inline_svg_tag('icons/delete', class: 'icon closer-icon')
 
 :javascript
   $('.sortable').railsSortable();

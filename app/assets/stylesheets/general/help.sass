@@ -1,37 +1,28 @@
 .help
+  background-color: AntiqueWhite
   display: none
-  line-height: 18px
 .show-help .help
   display: block
-.help-section
-  border-radius: 5px
-  margin-bottom: 10px
-.help-icon
-  padding: 2px 5px 3px 35px
+
+.with-help-icon
   position: relative
-  &::before
-    content: ''
-    display: block
+  .icon
+    position: absolute
+    left: 4px
+    top: 2px
     height: 20px
     width: 20px
-    background-image: asset-url('icons/help-bright.svg')
-    background-size: contain
-    position: absolute
-    left: 5px
-    bottom: 5px
-  small
-    display: block
+    path
+      fill: Peru
+
+.quasi-modal
+  .help
+    margin: 8px 0
+    small
+      display: block
+    span.white
+      font-weight: 600
+      color: Peru
 
 @media only screen and (max-width: $MINImax)
   .help
-    line-height: 18px
-  .help-icon
-    &::before
-      height: 16px
-      width: 16px
-      left: 10px
-      bottom: 6px
-    small
-      font-size: 10px
-      line-height: 12px
-      display: inline-block

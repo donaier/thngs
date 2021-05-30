@@ -1,42 +1,20 @@
 .header
   position: relative
-  padding: 20px 0
-  margin-bottom: 30px
+  background-color: Peru
 
-  img, svg
+  .header-logo-link svg
+    position: relative
     height: 84px
     width: 84px
     z-index: 15
-    position: relative
-
-  #header-logo
     path
-      transition: fill .8s ease, transform .8s ease
-      transform-origin: center
+      fill: AntiqueWhite
 
   .header-links
     position: absolute
-    right: 0
-    bottom: 0
-    padding-right: 10px
-    a.header-link
-      z-index: 8
-      display: inline-block
-      position: relative
-      border-radius: 10px
-      padding: 0 20px
-      background-image: asset-url('icons/chain-dark.svg')
-      background-size: contain
-      background-position: center
-      background-repeat: no-repeat
-      height: 28px
-      width: 28px
-      &.help-tgl
-        z-index: 12
-        background-image: asset-url('icons/help-bright.svg')
-        background-size: 65%
-        &.off
-          background-image: asset-url('icons/help-dark.svg')
+    z-index: 12
+    right: 10px
+    bottom: 16px
 
 .header-interceptor
   position: absolute
@@ -44,34 +22,31 @@
   width: 100%
 
   .header-title
-    width: 50%
     position: relative
+    width: 50%
     left: 50%
     margin-top: 52px
     margin-left: 64px
-  .header-link
+    color: AntiqueWhite
+  .add-link
     position: absolute
-    top: 62px
-    right: 9px
+    right: 10px
+    top: 46px
 
 @media only screen and (max-width: $MINImax)
   .header
-    padding: 10px 0
-    img, svg
+    .header-logo-link svg
       height: 44px
       width: 44px
-      margin-left: 10px
-    .header-links
-      bottom: 16px
 
   .header-interceptor
     .header-title
       left: 0
       padding-top: 22px
-      padding-left: 0
+      padding-left: 8px
       margin-top: 0
       margin-left: 48px
       font-size: 24px
-    .header-link
-      top: 55px
-      right: 7px
+    .add-link
+      right: 26px
+      top: 36px

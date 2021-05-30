@@ -1,0 +1,51 @@
+a.icon-link
+  background-color: BurlyWood
+  position: relative
+  display: inline-block
+  border-radius: 10px
+  padding: 0 8px
+  margin-left: 5px
+  height: 28px
+  &:hover
+    background-color: darken(BurlyWood, 10%)
+  &.active .icon path
+    fill: AntiqueWhite
+  .icon
+    height: 100%
+    width: 100%
+    path
+      fill: Peru
+
+  &.help-tgl
+    z-index: 12
+    .help-icon
+      width: 90%
+      path
+        fill: AntiqueWhite
+    &.off
+      .help-icon path
+        fill: Peru
+  &.add-link
+    .icon
+      position: relative
+      left: 15%
+      width: 70%
+      path
+        fill: AntiqueWhite
+  &.remove
+    position: absolute
+    right: 20px
+    height: 24px
+    background-color: transparent
+    .icon
+      vertical-align: text-top
+      height: 80%
+  &.check
+    height: 24px
+    .icon
+
+
+  @media only screen and (max-width: $MINImax)
+    height: 20px
+    .icon
+      vertical-align: top

@@ -4,6 +4,7 @@
   = f.text_field :href, placeholder: 'href'
   = f.hidden_field :creator, value: current_user.id
   = f.hidden_field :board_id, value: params[:board]
+  = hidden_field_tag :list_name
   .additionals
     - if params[:list]
       %small.float-right.pr-2
@@ -11,3 +12,8 @@
       = f.hidden_field :list_id, value: params[:list]
     .clearfix
   = f.submit 'ok', class: 'd-none'
+.help.with-help-icon.help-quasimodal.text-center
+  %small
+    %span.white
+      = '/[listName]'
+    sets list

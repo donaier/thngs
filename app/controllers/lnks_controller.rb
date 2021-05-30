@@ -14,7 +14,9 @@ class LnksController < ApplicationController
 
   def create
     @lnk = Lnk.new(lnk_params)
-
+    if params[:list_name] && !@lnk.list && List.where(title: params[:list_name]).any?
+      @lnk.update(list_id: List.where(title: params[:list_name]).first.id)
+    end
     respond_to do |format|
       if @lnk.save
         format.js { render :add_lnk }
