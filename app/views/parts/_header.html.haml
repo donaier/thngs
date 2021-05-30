@@ -5,6 +5,6 @@
     .container.text-right.position-relative
       .header-links
         = link_to toggle_help_path, method: :patch, class: current_user.wants_help ? 'icon-link help-tgl' : 'icon-link help-tgl off', remote: true do
-          = inline_svg_tag('icons/help', class: 'help-icon icon')
+          = inline_svg_tag('icons/help.svg', class: 'help-icon icon')
         = link_to home_profile_path, class: "icon-link #{current_page?(home_profile_path) ? 'active' : ''}" do
-          = inline_svg_tag('icons/chain', class: 'profile-icon icon')
+          = inline_svg_tag('icons/chain.svg', class: 'profile-icon icon')
