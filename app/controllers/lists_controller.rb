@@ -27,7 +27,6 @@ class ListsController < ApplicationController
     end
   end
 
-  # todo
   def destroy
     @list.tasks.each do |task|
       task.update(list_id: nil, board_id: @list.board_id)

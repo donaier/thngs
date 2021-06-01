@@ -1,2 +1,2 @@
 $('.quasi-modal').removeClass('active')
-$('.lists').append("<%= j (render partial: 'lists/show', locals: { list: @list }) %>")
+$('.lists').append("<%= j (render partial: 'lists/show', locals: { list: @list, home_board: @list.board }) %>")

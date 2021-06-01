@@ -12,4 +12,11 @@ window.addEventListener("turbolinks:load", () => {
     $('.board-nav .overlay').removeClass('active');
     $('.board-nav ul').removeClass('open');
   });
+
+  $('#omnibutton').on('mouseenter touchstart', function(){
+    $('#omnibutton').addClass('active');
+  });
+  $('#omnibutton').on('mouseleave touchend', function(){
+    $('#omnibutton').removeClass('active');
+  });
 });

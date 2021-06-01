@@ -1,9 +1,9 @@
 .container.text-sm-center.pt-3
   %h3.flashy= list.title
 %section.container.list-section{ id: "list-#{list.id}" }
-  = link_to new_task_path(list: list, board: @home_board), class: 'icon-link add-link', remote: true do
+  = link_to new_task_path(list: list, board: @home_board.nil? ? home_board : @home_board), class: 'icon-link add-link', remote: true do
     = inline_svg_tag('icons/add.svg', class: 'add-icon icon')
-  = link_to new_lnk_path(list: list, board: @home_board), class: 'icon-link add-link new-lnk', remote: true do
+  = link_to new_lnk_path(list: list, board: @home_board.nil? ? home_board : @home_board), class: 'icon-link add-link new-lnk', remote: true do
     = inline_svg_tag('icons/hash.svg', class: 'lnk-icon icon')
   .row
     .col-md-9.col-lg-10.col-12

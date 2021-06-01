@@ -1,14 +1,14 @@
-.omnibutton
+#omnibutton
   position: fixed
   bottom: 24px
   right: 48px
   border-radius: 32px
   height: 64px
   width: 64px
-  background-color: BurlyWood
-  border: 4px solid Peru
-  &:hover
-    background-color: darken(BurlyWood, 10%)
+  background-color: $secondary
+  border: 4px solid $primary
+  &.active
+    background-color: darken($secondary, 10%)
     .even-more
       right: 4px
   a
@@ -27,16 +27,18 @@
       border-radius: 24px
       height: 48px
       width: 48px
-      background-color: BurlyWood
-      border: 4px solid Peru
+      background-color: $secondary
+      border: 4px solid $primary
       margin-top: 12px
       &:hover
-        background-color: darken(BurlyWood, 10%)
-
+        background-color: darken($secondary, 10%)
 
   svg
     height: 65%
     width: 65%
     margin-top: 17%
     path
-      fill: AntiqueWhite
+      fill: $light
+
+  @media only screen and (max-width: $MINImax)
+    right: 24px
