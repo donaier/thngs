@@ -1,5 +1,5 @@
 a.icon-link
-  background-color: BurlyWood
+  background-color: $secondary
   position: relative
   display: inline-block
   border-radius: 10px
@@ -7,31 +7,31 @@ a.icon-link
   margin-left: 5px
   height: 28px
   &:hover
-    background-color: darken(BurlyWood, 10%)
+    background-color: darken($secondary, 10%)
   &.active .icon path
-    fill: AntiqueWhite
+    fill: $light
   .icon
     height: 100%
     width: 100%
     path
-      fill: Peru
+      fill: $primary
 
   &.help-tgl
     z-index: 12
     .help-icon
       width: 90%
       path
-        fill: AntiqueWhite
+        fill: $light
     &.off
       .help-icon path
-        fill: Peru
+        fill: $primary
   &.add-link
     .icon
       position: relative
       left: 15%
       width: 70%
       path
-        fill: AntiqueWhite
+        fill: $light
   &.remove
     position: absolute
     right: 20px

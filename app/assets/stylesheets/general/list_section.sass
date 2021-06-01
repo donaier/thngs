@@ -15,17 +15,17 @@
         margin-bottom: -32px
   .boardlist
     li
-      background-color: darken(BurlyWood, 10%)
+      background-color: darken($secondary, 10%)
   .listlist
     li
-      background-color: BurlyWood
+      background-color: $secondary
   .tasklist
     li
-      background-color: darken(BurlyWood, 10)
+      background-color: darken($secondary, 10)
     .icon-link.check
       position: absolute
       right: 20px
-      background-color: BurlyWood
+      background-color: $secondary
   .linklist
     margin-top: 4px
     .alink
@@ -33,11 +33,11 @@
       color: Black
       padding: 0 8px
       margin-bottom: 4px
-      border: 2px solid Peru
+      border: 2px solid $primary
       display: block
-      background-color: AntiqueWhite
+      background-color: $light
       &:hover
-        background-color: darken(AntiqueWhite, 10%)
+        background-color: darken($light, 10%)
       .lnk-decoration
         position: absolute
         top: 0
@@ -45,7 +45,7 @@
         height: 90%
         transform: rotate(12deg)
         path
-          fill: BurlyWood
+          fill: $secondary
 
   .add-link
     position: absolute

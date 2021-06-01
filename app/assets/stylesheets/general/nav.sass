@@ -4,7 +4,7 @@
   margin-right: 84px
 
   .overlay
-    background-color: BurlyWood
+    background-color: $secondary
     position: fixed
     top: 0
     left: 0
@@ -18,7 +18,7 @@
       .highlight-pillar
         height: 100vh
     .highlight-pillar
-      background-color: AntiqueWhite
+      background-color: $light
       position: absolute
       left: 50%
       margin-left: 52px
@@ -37,7 +37,7 @@
       transition: color .4s ease
     &:not(.open)
       h1
-        color: AntiqueWhite
+        color: $light
     &.open
       li:not(.active)
         max-height: 150px
@@ -50,7 +50,7 @@
       overflow: hidden
       transition: max-height .4s ease, margin-top .4s ease
     a:hover h1
-      color: darken(Peru, 10%)
+      color: darken($primary, 10%)
 
   @media only screen and (max-width: $MINImax)
     margin-left: 0

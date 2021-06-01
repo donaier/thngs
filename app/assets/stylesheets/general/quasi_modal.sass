@@ -1,6 +1,6 @@
 .quasi-modal.active
   .overlay
-    background-color: darken(Peru, 80%)
+    background-color: darken($primary, 80%)
     position: fixed
     top: 0
     bottom: 0
@@ -22,8 +22,8 @@
   .content
     position: relative
     left: -50%
-    background-color: BurlyWood
-    border: 3px solid Peru
+    background-color: $secondary
+    border: 3px solid $primary
     border-radius: 10px
 
   form input
@@ -33,9 +33,9 @@
     font-size: 24px
     outline: none
     border: none
-    background-color: AntiqueWhite
+    background-color: $light
     font-family: 'Merriweather', serif
-    caret-color: Peru
+    caret-color: $primary
     &:focus
       outline: none
       outline-width: 0

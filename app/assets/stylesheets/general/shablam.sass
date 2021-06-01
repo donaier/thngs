@@ -2,17 +2,17 @@
   path
     transition: fill .8s ease, transform .8s ease
     transform-origin: center
-    fill: AntiqueWhite
+    fill: $light
     &.r3
-      fill: lighten(AntiqueWhite, 10%)
+      fill: lighten($light, 10%)
     &.r2
-      fill: AntiqueWhite
+      fill: $light
     &.r1
-      fill: darken(AntiqueWhite, 10%)
+      fill: darken($light, 10%)
 
 a:hover #header-logo
   path.r1
-    fill: lighten(AntiqueWhite, 10%)
+    fill: lighten($light, 10%)
     transform: rotate(90deg)
   path.r3
-    fill: darken(AntiqueWhite, 10%)
+    fill: darken($light, 10%)
